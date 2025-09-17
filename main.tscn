@@ -64,13 +64,8 @@ script = ExtResource("1_1bvp3")
 [node name="Environment" parent="." instance=ExtResource("2_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.7933, -34.6795, -5.85846)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.907777, -0.336744, 0.250088, 0, 0.596225, 0.802817, -0.419452, -0.72878, 0.54124, 0, 374.419, 0)
-shadow_enabled = true
-directional_shadow_max_distance = 30.0
-
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 43.4081, 11.0699, 506.748)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, -125.648, 11.0699, 506.748)
 
 [node name="Terrain3D" type="Terrain3D" parent="."]
 data_directory = "res://world"

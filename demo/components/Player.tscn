@@ -46,8 +46,16 @@ shape = SubResource("SphereShape3D_smq6u")
 spring_length = 6.0
 margin = 0.5
 
+[node name="SpotLight3D" type="SpotLight3D" parent="CameraManager/Arm"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.394054, -1.93553, -1.12836)
+light_energy = 10.0
+light_indirect_energy = 10.0
+light_volumetric_fog_energy = 10.0
+spot_range = 30.0
+
 [node name="Camera3D" type="Camera3D" parent="CameraManager/Arm"]
 unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.33568, 0)
 near = 0.25
 far = 16384.0
 
@@ -63,9 +71,10 @@ shape = SubResource("SeparationRayShape3D_twc2s")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CapsuleMesh_lsqiy")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.94, 1.08, -1.737)
-
 [node name="FootAudio3D" type="AudioStreamPlayer3D" parent="."]
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_mox7b")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47159, 1.26968, -1.0941)
+size = Vector3(0.262, 0.343793, 0.458862)
