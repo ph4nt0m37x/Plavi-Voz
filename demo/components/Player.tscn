@@ -1,0 +1,71 @@
+[gd_scene load_steps=16 format=3 uid="uid://domhm87hbhbg1"]
+
+[ext_resource type="Script" uid="uid://dajlr3n5wjwmb" path="res://demo/src/Player.gd" id="1_nm1yx"]
+[ext_resource type="Script" uid="uid://b62ppvc03a6b1" path="res://demo/src/CameraManager.gd" id="2_loos7"]
+[ext_resource type="AudioStream" uid="uid://uwwbbus3xkud" path="res://sounds/output_000.mp3" id="3_nqtny"]
+[ext_resource type="AudioStream" uid="uid://bvhvhxots33on" path="res://sounds/output_001.mp3" id="4_x8qd1"]
+[ext_resource type="AudioStream" uid="uid://x2u7fwj2r7xm" path="res://sounds/output_002.mp3" id="5_ubio3"]
+[ext_resource type="AudioStream" uid="uid://km4dcgmdxn4w" path="res://sounds/output_003.mp3" id="6_sdxoi"]
+[ext_resource type="AudioStream" uid="uid://cya4ry1qxkyk" path="res://sounds/output_004.mp3" id="7_ncd0f"]
+[ext_resource type="AudioStream" uid="uid://5t74hh2a8bst" path="res://sounds/output_005.mp3" id="8_564i2"]
+[ext_resource type="AudioStream" uid="uid://dnpvyxejaswcs" path="res://sounds/output_006.mp3" id="9_7q5qd"]
+[ext_resource type="AudioStream" uid="uid://dx7w0q5osm628" path="res://sounds/output_007.mp3" id="10_4qnbb"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_smq6u"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lwhhq"]
+height = 1.5
+
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_twc2s"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_lsqiy"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_mox7b"]
+streams_count = 8
+stream_0/stream = ExtResource("3_nqtny")
+stream_1/stream = ExtResource("4_x8qd1")
+stream_2/stream = ExtResource("5_ubio3")
+stream_3/stream = ExtResource("6_sdxoi")
+stream_4/stream = ExtResource("7_ncd0f")
+stream_5/stream = ExtResource("8_564i2")
+stream_6/stream = ExtResource("9_7q5qd")
+stream_7/stream = ExtResource("10_4qnbb")
+
+[node name="Player" type="CharacterBody3D"]
+collision_layer = 2
+script = ExtResource("1_nm1yx")
+
+[node name="CameraManager" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.72567, 0)
+script = ExtResource("2_loos7")
+
+[node name="Arm" type="SpringArm3D" parent="CameraManager"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.32515, -0.0321627)
+shape = SubResource("SphereShape3D_smq6u")
+spring_length = 6.0
+margin = 0.5
+
+[node name="Camera3D" type="Camera3D" parent="CameraManager/Arm"]
+unique_name_in_owner = true
+near = 0.25
+far = 16384.0
+
+[node name="CollisionShapeBody" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+shape = SubResource("CapsuleShape3D_lwhhq")
+
+[node name="CollisionShapeRay" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 0)
+shape = SubResource("SeparationRayShape3D_twc2s")
+
+[node name="Body" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_lsqiy")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.94, 1.08, -1.737)
+
+[node name="FootAudio3D" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_mox7b")
