@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://3qiwl4ex611i"]
+
+[ext_resource type="PackedScene" uid="uid://14t7ulgwpo75" path="res://models/radio/radio.blend" id="1_flxc7"]
+
+[node name="radio" instance=ExtResource("1_flxc7")]
+
+[node name="Sun" parent="." index="0"]
+visible = false
+
+[node name="Camera" parent="." index="1"]
+visible = false
+
+[node name="Empty" parent="." index="2"]
+visible = false
+
+[node name="Front" parent="." index="3"]
+visible = false
+
+[node name="Side" parent="." index="4"]
+visible = false
+
+[node name="Cube_001" parent="." index="5"]
+visible = false
+
+[node name="pipe big" parent="." index="6"]
+visible = false
+
+[node name="body_001" parent="." index="23"]
+visible = false
+
+[node name="Face ref" parent="." index="24"]
+visible = false
+
+[node name="hole_front" parent="." index="25"]
+visible = false
+
+[node name="hole_many_low_001" parent="." index="26"]
+visible = false
+
+[node name="hole_multy" parent="." index="27"]
+visible = false

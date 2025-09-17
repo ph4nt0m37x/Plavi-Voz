@@ -1,43 +1,93 @@
-[gd_scene load_steps=7 format=3 uid="uid://eftwowae5o82"]
+[gd_scene load_steps=14 format=3 uid="uid://eftwowae5o82"]
 
-[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_1l72b"]
+[ext_resource type="PackedScene" uid="uid://d2jihfohphuue" path="res://demo/components/UI.tscn" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://84o8jmihsg87" path="res://main_test.gd" id="1_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://domhm87hbhbg1" path="res://demo/components/Player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://bb2lp50sjndus" path="res://demo/components/Environment.tscn" id="2_h2yge"]
+[ext_resource type="Terrain3DAssets" uid="uid://dal3jhw6241qg" path="res://demo/data/assets.tres" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://d3sr0a7dxfkr8" path="res://addons/terrain_3d/extras/particle_example/Terrain3DParticles.tscn" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://b0wd42uq4xkpl" path="res://models/radio.glb" id="8_5vw27"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_p8oyt"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+[sub_resource type="Gradient" id="Gradient_1bvp3"]
+offsets = PackedFloat32Array(0.2, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
-[sub_resource type="Sky" id="Sky_x1i3b"]
-sky_material = SubResource("ProceduralSkyMaterial_p8oyt")
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_lquwl"]
+noise_type = 2
+frequency = 0.03
+cellular_jitter = 3.0
+cellular_return_type = 0
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 50.0
+domain_warp_fractal_type = 2
+domain_warp_fractal_lacunarity = 1.5
+domain_warp_fractal_gain = 1.0
 
-[sub_resource type="Environment" id="Environment_g66hx"]
-background_mode = 2
-sky = SubResource("Sky_x1i3b")
-tonemap_mode = 2
-glow_enabled = true
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7mycd"]
+seamless = true
+color_ramp = SubResource("Gradient_1bvp3")
+noise = SubResource("FastNoiseLite_lquwl")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_bs105"]
-size = Vector2(100, 100)
+[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_272bh"]
+_shader_parameters = {
+&"bias_distance": 512.0,
+&"blend_sharpness": 0.5,
+&"depth_blur": 0.0,
+&"enable_macro_variation": true,
+&"enable_projection": true,
+&"flat_terrain_normals": false,
+&"macro_variation1": Color(1, 1, 1, 1),
+&"macro_variation2": Color(1, 1, 1, 1),
+&"macro_variation_slope": 0.333,
+&"mipmap_bias": 1.0,
+&"noise1_angle": 0.0,
+&"noise1_offset": Vector2(0.5, 0.5),
+&"noise1_scale": 0.04,
+&"noise2_scale": 0.076,
+&"noise_texture": SubResource("NoiseTexture2D_7mycd"),
+&"projection_threshold": 0.8
+}
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ec3p8"]
-data = PackedVector3Array(50, 0, 50, -50, 0, 50, 50, 0, -50, -50, 0, 50, -50, 0, -50, 50, 0, -50)
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_272bh"]
+shape = 0
+section_length = 0.18
+section_segments = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_272bh"]
 
 [node name="Main" type="Node3D"]
+script = ExtResource("1_1bvp3")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_g66hx")
+[node name="UI" parent="." instance=ExtResource("1_0xm2m")]
+
+[node name="Environment" parent="." instance=ExtResource("2_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.7933, -34.6795, -5.85846)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.907777, -0.336743, 0.250088, 0, 0.596225, 0.802817, -0.419452, -0.72878, 0.54124, 0, 0, 0)
+transform = Transform3D(0.907777, -0.336744, 0.250088, 0, 0.596225, 0.802817, -0.419452, -0.72878, 0.54124, 0, 374.419, 0)
 shadow_enabled = true
 directional_shadow_max_distance = 30.0
 
-[node name="Floor" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_bs105")
+[node name="Player" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 43.4081, 11.0699, 506.748)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+[node name="Terrain3D" type="Terrain3D" parent="."]
+data_directory = "res://world"
+material = SubResource("Terrain3DMaterial_272bh")
+assets = ExtResource("5_lquwl")
+top_level = true
+metadata/_edit_lock_ = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_ec3p8")
+[node name="Terrain3DParticles" parent="Terrain3D" node_paths=PackedStringArray("terrain") instance=ExtResource("6_7mycd")]
+terrain = NodePath("..")
+mesh = SubResource("RibbonTrailMesh_272bh")
 
-[node name="ProtoController" parent="." instance=ExtResource("1_1l72b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.529362, 0, 0.185152)
+[node name="radio" parent="." instance=ExtResource("8_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94.9971, 4.00601, 508.861)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="radio"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="radio/StaticBody3D"]
+transform = Transform3D(7.13, 0, 0, 0, 7.13, 0, 0, 0, 7.13, 0, 0, 0)
+shape = SubResource("BoxShape3D_272bh")
