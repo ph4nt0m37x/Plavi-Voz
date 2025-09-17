@@ -1,4 +1,4 @@
-[gd_resource type="Terrain3DAssets" load_steps=20 format=3 uid="uid://dal3jhw6241qg"]
+[gd_resource type="Terrain3DAssets" load_steps=26 format=3 uid="uid://dal3jhw6241qg"]
 
 [ext_resource type="PackedScene" uid="uid://bn5nf4esciwex" path="res://demo/assets/models/LODExample.tscn" id="1_4jrdu"]
 [ext_resource type="Texture2D" uid="uid://c88j3oj0lf6om" path="res://demo/assets/textures/rock023_alb_ht.png" id="2_pog6b"]
@@ -11,6 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://52tyv7a1iqr0" path="res://world_textures/ice_normal_texture.png" id="9_xlng6"]
 [ext_resource type="Texture2D" uid="uid://c3mojh1lrj4l" path="res://world_textures/rock_albedo_texture.png" id="10_3wxcx"]
 [ext_resource type="Texture2D" uid="uid://dokey42shxnis" path="res://world_textures/rock_normal_texture.png" id="11_g6711"]
+[ext_resource type="Texture2D" uid="uid://b1uwq4gmcoe7v" path="res://world_textures/concrete_albedo_texture.png" id="12_3mny6"]
+[ext_resource type="Texture2D" uid="uid://bv4uj5w3vcw2w" path="res://world_textures/concrete_normal_texture.png" id="13_3veh0"]
+[ext_resource type="Texture2D" uid="uid://ccuamoydnii1g" path="res://world_textures/ice_snow_albedo_texture.png" id="14_6ck1f"]
+[ext_resource type="Texture2D" uid="uid://bmttq5wu443mx" path="res://world_textures/ice_snow_normal_texture.png" id="15_wpchd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b2vqk"]
 transparency = 4
@@ -72,6 +76,18 @@ albedo_color = Color(0.67451, 0.74902, 0.686275, 1)
 albedo_texture = ExtResource("3_g8f2m")
 normal_texture = ExtResource("4_aw5y1")
 
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_6ck1f"]
+name = "concrete_albedo_texture"
+id = 5
+albedo_texture = ExtResource("12_3mny6")
+normal_texture = ExtResource("13_3veh0")
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_av6tq"]
+name = "ice_snow_albedo_texture"
+id = 6
+albedo_texture = ExtResource("14_6ck1f")
+normal_texture = ExtResource("15_wpchd")
+
 [resource]
 mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_2qf8x"), SubResource("Terrain3DMeshAsset_or12t")])
-texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_uyhyi"), SubResource("Terrain3DTextureAsset_lha57"), SubResource("Terrain3DTextureAsset_3wxcx"), SubResource("Terrain3DTextureAsset_3mny6"), SubResource("Terrain3DTextureAsset_od0q7")])
+texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_uyhyi"), SubResource("Terrain3DTextureAsset_lha57"), SubResource("Terrain3DTextureAsset_3wxcx"), SubResource("Terrain3DTextureAsset_3mny6"), SubResource("Terrain3DTextureAsset_od0q7"), SubResource("Terrain3DTextureAsset_6ck1f"), SubResource("Terrain3DTextureAsset_av6tq")])

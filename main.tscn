@@ -75,6 +75,7 @@ top_level = true
 metadata/_edit_lock_ = true
 
 [node name="Terrain3DParticles" parent="Terrain3D" node_paths=PackedStringArray("terrain") instance=ExtResource("6_7mycd")]
+visible = false
 terrain = NodePath("..")
 mesh = SubResource("RibbonTrailMesh_272bh")
 
