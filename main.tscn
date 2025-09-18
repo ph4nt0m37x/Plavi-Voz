@@ -1,18 +1,28 @@
 [gd_scene load_steps=14 format=3 uid="uid://eftwowae5o82"]
 
 [ext_resource type="PackedScene" uid="uid://d2jihfohphuue" path="res://demo/components/UI.tscn" id="1_0xm2m"]
-[ext_resource type="Script" uid="uid://84o8jmihsg87" path="res://main_test.gd" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://domhm87hbhbg1" path="res://demo/components/Player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://bb2lp50sjndus" path="res://demo/components/Environment.tscn" id="2_h2yge"]
 [ext_resource type="Terrain3DAssets" uid="uid://dal3jhw6241qg" path="res://demo/data/assets.tres" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://d3sr0a7dxfkr8" path="res://addons/terrain_3d/extras/particle_example/Terrain3DParticles.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://b0wd42uq4xkpl" path="res://models/radio.glb" id="8_5vw27"]
 
-[sub_resource type="Gradient" id="Gradient_1bvp3"]
+[sub_resource type="GDScript" id="GDScript_7mycd"]
+script/source = "@tool
+#extends Node
+extends Node3D
+
+func _ready():
+	if not Engine.is_editor_hint() and has_node(\"UI\"):
+		$UI.player = $Player
+		$UI.terrain = $Terrain3D
+"
+
+[sub_resource type="Gradient" id="Gradient_272bh"]
 offsets = PackedFloat32Array(0.2, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_lquwl"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5vw27"]
 noise_type = 2
 frequency = 0.03
 cellular_jitter = 3.0
@@ -24,13 +34,17 @@ domain_warp_fractal_type = 2
 domain_warp_fractal_lacunarity = 1.5
 domain_warp_fractal_gain = 1.0
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7mycd"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_kek77"]
 seamless = true
-color_ramp = SubResource("Gradient_1bvp3")
-noise = SubResource("FastNoiseLite_lquwl")
+color_ramp = SubResource("Gradient_272bh")
+noise = SubResource("FastNoiseLite_5vw27")
 
 [sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_272bh"]
 _shader_parameters = {
+&"auto_base_texture": 0,
+&"auto_height_reduction": 0.0,
+&"auto_overlay_texture": 1,
+&"auto_slope": 1.0,
 &"bias_distance": 512.0,
 &"blend_sharpness": 0.5,
 &"depth_blur": 0.0,
@@ -45,9 +59,19 @@ _shader_parameters = {
 &"noise1_offset": Vector2(0.5, 0.5),
 &"noise1_scale": 0.04,
 &"noise2_scale": 0.076,
-&"noise_texture": SubResource("NoiseTexture2D_7mycd"),
-&"projection_threshold": 0.8
+&"noise_texture": SubResource("NoiseTexture2D_kek77"),
+&"projection_threshold": 0.8,
+&"world_noise_fragment_normals": false,
+&"world_noise_height": 64.0,
+&"world_noise_lod_distance": 7500.0,
+&"world_noise_max_octaves": 4,
+&"world_noise_min_octaves": 2,
+&"world_noise_offset": Vector3(0, 0, 0),
+&"world_noise_region_blend": 0.33,
+&"world_noise_scale": 5.0
 }
+world_background = 2
+auto_shader = true
 
 [sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_272bh"]
 shape = 0
@@ -55,9 +79,10 @@ section_length = 0.18
 section_segments = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_272bh"]
+size = Vector3(0.635742, 0.266663, 0.822021)
 
 [node name="Main" type="Node3D"]
-script = ExtResource("1_1bvp3")
+script = SubResource("GDScript_7mycd")
 
 [node name="UI" parent="." instance=ExtResource("1_0xm2m")]
 
@@ -65,7 +90,7 @@ script = ExtResource("1_1bvp3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.7933, -34.6795, -5.85846)
 
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, -125.648, 11.0699, 506.748)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 98.0607, 7.47129, 218.509)
 
 [node name="Terrain3D" type="Terrain3D" parent="."]
 data_directory = "res://world"
@@ -80,10 +105,19 @@ terrain = NodePath("..")
 mesh = SubResource("RibbonTrailMesh_272bh")
 
 [node name="radio" parent="." instance=ExtResource("8_5vw27")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94.9971, 4.00601, 508.861)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94.9971, 2.18748, 209.629)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="radio"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="radio/StaticBody3D"]
-transform = Transform3D(7.13, 0, 0, 0, 7.13, 0, 0, 0, 7.13, 0, 0, 0)
+transform = Transform3D(7.13, 0, 0, 0, 7.13, 0, 0, 0, 7.13, -0.0104446, -0.0324211, 0.241089)
+shape = SubResource("BoxShape3D_272bh")
+
+[node name="radio2" parent="." instance=ExtResource("8_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83.7337, 2.18748, 209.629)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="radio2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="radio2/StaticBody3D"]
+transform = Transform3D(7.13, 0, 0, 0, 7.13, 0, 0, 0, 7.13, -0.0104446, -0.0324211, 0.241089)
 shape = SubResource("BoxShape3D_272bh")

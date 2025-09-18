@@ -1,18 +1,10 @@
-[gd_resource type="Terrain3DAssets" load_steps=26 format=3 uid="uid://dal3jhw6241qg"]
+[gd_resource type="Terrain3DAssets" load_steps=14 format=3 uid="uid://dal3jhw6241qg"]
 
 [ext_resource type="PackedScene" uid="uid://bn5nf4esciwex" path="res://demo/assets/models/LODExample.tscn" id="1_4jrdu"]
-[ext_resource type="Texture2D" uid="uid://c88j3oj0lf6om" path="res://demo/assets/textures/rock023_alb_ht.png" id="2_pog6b"]
-[ext_resource type="Texture2D" uid="uid://ddprscrpsofah" path="res://demo/assets/textures/ground037_alb_ht.png" id="3_g8f2m"]
-[ext_resource type="Texture2D" uid="uid://c307hdmos4gtm" path="res://demo/assets/textures/rock023_nrm_rgh.png" id="3_wncaf"]
-[ext_resource type="Texture2D" uid="uid://c1ots7w6i0i1q" path="res://demo/assets/textures/ground037_nrm_rgh.png" id="4_aw5y1"]
-[ext_resource type="Texture2D" uid="uid://ccvs2s4sd3m4e" path="res://world_textures/snow_albedo_texture.png" id="6_e6edf"]
-[ext_resource type="Texture2D" uid="uid://c44yt2v85knnm" path="res://world_textures/snow_normal_texture.png" id="7_cmr6o"]
-[ext_resource type="Texture2D" uid="uid://bb2xn4jrr8pcy" path="res://world_textures/ice_albedo_texture.png" id="8_uyhyi"]
-[ext_resource type="Texture2D" uid="uid://52tyv7a1iqr0" path="res://world_textures/ice_normal_texture.png" id="9_xlng6"]
-[ext_resource type="Texture2D" uid="uid://c3mojh1lrj4l" path="res://world_textures/rock_albedo_texture.png" id="10_3wxcx"]
-[ext_resource type="Texture2D" uid="uid://dokey42shxnis" path="res://world_textures/rock_normal_texture.png" id="11_g6711"]
-[ext_resource type="Texture2D" uid="uid://b1uwq4gmcoe7v" path="res://world_textures/concrete_albedo_texture.png" id="12_3mny6"]
-[ext_resource type="Texture2D" uid="uid://bv4uj5w3vcw2w" path="res://world_textures/concrete_normal_texture.png" id="13_3veh0"]
+[ext_resource type="Texture2D" uid="uid://omap2xgs7nc4" path="res://world_textures/rock_new_albedo_texture.png" id="2_e6edf"]
+[ext_resource type="Texture2D" uid="uid://cv81vep1xnwun" path="res://world_textures/rock_new_normal_texture.png" id="3_cmr6o"]
+[ext_resource type="Texture2D" uid="uid://buoaksdvdg8fr" path="res://world_textures/snow_rough_albedo_texture.png" id="4_av6tq"]
+[ext_resource type="Texture2D" uid="uid://cj4au4xcjgjrh" path="res://world_textures/snow_rough_normal_texture.png" id="5_77bb3"]
 [ext_resource type="Texture2D" uid="uid://ccuamoydnii1g" path="res://world_textures/ice_snow_albedo_texture.png" id="14_6ck1f"]
 [ext_resource type="Texture2D" uid="uid://bmttq5wu443mx" path="res://world_textures/ice_snow_normal_texture.png" id="15_wpchd"]
 
@@ -44,50 +36,25 @@ last_lod = 3
 last_shadow_lod = 3
 
 [sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_uyhyi"]
-name = "snow_albedo_texture"
-albedo_texture = ExtResource("6_e6edf")
-normal_texture = ExtResource("7_cmr6o")
+name = "rock_new_albedo_texture"
+albedo_texture = ExtResource("2_e6edf")
+normal_texture = ExtResource("3_cmr6o")
+normal_depth = 2.0
+uv_scale = 0.013
 
-[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_lha57"]
-name = "Cliff"
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_tspr8"]
+name = "snow_rough_albedo_texture"
 id = 1
-albedo_texture = ExtResource("2_pog6b")
-normal_texture = ExtResource("3_wncaf")
-normal_depth = 1.0
-ao_strength = 2.0
-roughness = -0.05
+albedo_texture = ExtResource("4_av6tq")
+normal_texture = ExtResource("5_77bb3")
 
-[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_3wxcx"]
-name = "ice_albedo_texture"
-id = 2
-albedo_texture = ExtResource("8_uyhyi")
-normal_texture = ExtResource("9_xlng6")
-
-[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_3mny6"]
-name = "rock_albedo_texture"
-id = 3
-albedo_texture = ExtResource("10_3wxcx")
-normal_texture = ExtResource("11_g6711")
-
-[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_od0q7"]
-name = "Grass"
-id = 4
-albedo_color = Color(0.67451, 0.74902, 0.686275, 1)
-albedo_texture = ExtResource("3_g8f2m")
-normal_texture = ExtResource("4_aw5y1")
-
-[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_6ck1f"]
-name = "concrete_albedo_texture"
-id = 5
-albedo_texture = ExtResource("12_3mny6")
-normal_texture = ExtResource("13_3veh0")
-
-[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_av6tq"]
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_c4qpr"]
 name = "ice_snow_albedo_texture"
-id = 6
+id = 2
 albedo_texture = ExtResource("14_6ck1f")
 normal_texture = ExtResource("15_wpchd")
+uv_scale = 0.025
 
 [resource]
 mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_2qf8x"), SubResource("Terrain3DMeshAsset_or12t")])
-texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_uyhyi"), SubResource("Terrain3DTextureAsset_lha57"), SubResource("Terrain3DTextureAsset_3wxcx"), SubResource("Terrain3DTextureAsset_3mny6"), SubResource("Terrain3DTextureAsset_od0q7"), SubResource("Terrain3DTextureAsset_6ck1f"), SubResource("Terrain3DTextureAsset_av6tq")])
+texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_uyhyi"), SubResource("Terrain3DTextureAsset_tspr8"), SubResource("Terrain3DTextureAsset_c4qpr")])

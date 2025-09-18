@@ -39,6 +39,14 @@ script = ExtResource("1_nm1yx")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.72567, 0)
 script = ExtResource("2_loos7")
 
+[node name="SpotLight3D" type="SpotLight3D" parent="CameraManager"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.570364, -0.311427, -1.058)
+light_energy = 0.5
+shadow_enabled = true
+spot_range = 50.0
+spot_attenuation = 0.3
+
 [node name="Arm" type="SpringArm3D" parent="CameraManager"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.32515, -0.0321627)
@@ -46,15 +54,7 @@ shape = SubResource("SphereShape3D_smq6u")
 spring_length = 6.0
 margin = 0.5
 
-[node name="SpotLight3D" type="SpotLight3D" parent="CameraManager/Arm"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.394054, -1.93553, -1.12836)
-light_energy = 10.0
-light_indirect_energy = 10.0
-light_volumetric_fog_energy = 10.0
-spot_range = 30.0
-
 [node name="Camera3D" type="Camera3D" parent="CameraManager/Arm"]
-unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.33568, 0)
 near = 0.25
 far = 16384.0
