@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://domhm87hbhbg1"]
 
-[ext_resource type="Script" uid="uid://dajlr3n5wjwmb" path="res://demo/src/Player.gd" id="1_nm1yx"]
+[ext_resource type="Script" uid="uid://dajlr3n5wjwmb" path="res://player/Player.gd" id="1_nm1yx"]
 [ext_resource type="Script" uid="uid://b62ppvc03a6b1" path="res://demo/src/CameraManager.gd" id="2_loos7"]
 [ext_resource type="AudioStream" uid="uid://uwwbbus3xkud" path="res://sounds/output_000.mp3" id="3_nqtny"]
 [ext_resource type="AudioStream" uid="uid://bvhvhxots33on" path="res://sounds/output_001.mp3" id="4_x8qd1"]
@@ -42,6 +42,7 @@ script = ExtResource("2_loos7")
 [node name="SpotLight3D" type="SpotLight3D" parent="CameraManager"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.570364, -0.311427, -1.058)
+visible = false
 light_energy = 0.5
 shadow_enabled = true
 spot_range = 50.0
@@ -56,6 +57,7 @@ margin = 0.5
 
 [node name="Camera3D" type="Camera3D" parent="CameraManager/Arm"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.33568, 0)
+fov = 90.0
 near = 0.25
 far = 16384.0
 

@@ -1,10 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://eftwowae5o82"]
+[gd_scene load_steps=12 format=3 uid="uid://eftwowae5o82"]
 
 [ext_resource type="PackedScene" uid="uid://d2jihfohphuue" path="res://demo/components/UI.tscn" id="1_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://domhm87hbhbg1" path="res://demo/components/Player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://domhm87hbhbg1" path="res://player/Player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://bb2lp50sjndus" path="res://demo/components/Environment.tscn" id="2_h2yge"]
 [ext_resource type="Terrain3DAssets" uid="uid://dal3jhw6241qg" path="res://demo/data/assets.tres" id="5_lquwl"]
-[ext_resource type="PackedScene" uid="uid://d3sr0a7dxfkr8" path="res://addons/terrain_3d/extras/particle_example/Terrain3DParticles.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://b0wd42uq4xkpl" path="res://models/radio.glb" id="8_5vw27"]
 
 [sub_resource type="GDScript" id="GDScript_7mycd"]
@@ -73,11 +72,6 @@ _shader_parameters = {
 world_background = 2
 auto_shader = true
 
-[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_272bh"]
-shape = 0
-section_length = 0.18
-section_segments = 1
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_272bh"]
 size = Vector3(0.635742, 0.266663, 0.822021)
 
@@ -90,7 +84,7 @@ script = SubResource("GDScript_7mycd")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.7933, -34.6795, -5.85846)
 
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 98.0607, 7.47129, 218.509)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 95.787, 1.12614, 273.449)
 
 [node name="Terrain3D" type="Terrain3D" parent="."]
 data_directory = "res://world"
@@ -98,11 +92,6 @@ material = SubResource("Terrain3DMaterial_272bh")
 assets = ExtResource("5_lquwl")
 top_level = true
 metadata/_edit_lock_ = true
-
-[node name="Terrain3DParticles" parent="Terrain3D" node_paths=PackedStringArray("terrain") instance=ExtResource("6_7mycd")]
-visible = false
-terrain = NodePath("..")
-mesh = SubResource("RibbonTrailMesh_272bh")
 
 [node name="radio" parent="." instance=ExtResource("8_5vw27")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94.9971, 2.18748, 209.629)
@@ -121,3 +110,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83.7337, 2.18748, 209.629)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="radio2/StaticBody3D"]
 transform = Transform3D(7.13, 0, 0, 0, 7.13, 0, 0, 0, 7.13, -0.0104446, -0.0324211, 0.241089)
 shape = SubResource("BoxShape3D_272bh")
+
+[node name="WORKLIGHT" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 791.93, 0)
