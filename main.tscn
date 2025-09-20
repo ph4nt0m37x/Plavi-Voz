@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://eftwowae5o82"]
+[gd_scene load_steps=22 format=3 uid="uid://eftwowae5o82"]
 
 [ext_resource type="PackedScene" uid="uid://d2jihfohphuue" path="res://demo/components/UI.tscn" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://domhm87hbhbg1" path="res://player/Player.tscn" id="1_ig7tw"]
@@ -23,6 +23,18 @@ func _ready():
 		$UI.player = $Player
 		$UI.terrain = $Terrain3D
 "
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_272bh"]
+size = Vector3(0.635742, 0.266663, 0.822021)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_dg77c"]
+height = 0.898315
+radius = 0.355469
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ycdy4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dg77c"]
+size = Vector3(0.633606, 1, 4.26245)
 
 [sub_resource type="Gradient" id="Gradient_272bh"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -66,21 +78,11 @@ _shader_parameters = {
 &"noise1_scale": 0.04,
 &"noise2_scale": 0.076,
 &"noise_texture": SubResource("NoiseTexture2D_kek77"),
-&"projection_threshold": 0.8,
-&"world_noise_fragment_normals": false,
-&"world_noise_height": 64.0,
-&"world_noise_lod_distance": 7500.0,
-&"world_noise_max_octaves": 4,
-&"world_noise_min_octaves": 2,
-&"world_noise_offset": Vector3(0, 0, 0),
-&"world_noise_region_blend": 0.33,
-&"world_noise_scale": 5.0
+&"projection_threshold": 0.8
 }
-world_background = 2
+world_background = 0
 auto_shader = true
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_272bh"]
-size = Vector3(0.635742, 0.266663, 0.822021)
+show_region_grid = true
 
 [node name="Main" type="Node3D"]
 script = SubResource("GDScript_7mycd")
@@ -88,83 +90,93 @@ script = SubResource("GDScript_7mycd")
 [node name="WORKLIGHT" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 791.93, 0)
 
+[node name="ASSETS" type="Node" parent="."]
+
+[node name="radio_stat" parent="ASSETS" instance=ExtResource("8_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.3888, -0.16007, -0.25942)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="ASSETS/radio_stat"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.63131, 0)
+stream = ExtResource("6_7mycd")
+autoplay = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ASSETS/radio_stat"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ASSETS/radio_stat/StaticBody3D"]
+transform = Transform3D(7.13, 0, 0, 0, 7.13, 0, 0, 0, 7.13, -0.0104446, -0.0324211, 0.241089)
+shape = SubResource("BoxShape3D_272bh")
+
+[node name="radio_mil" parent="ASSETS" instance=ExtResource("8_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30.7373)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="ASSETS/radio_mil"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08383, 3.6097, -0.0351562)
+stream = ExtResource("7_5vw27")
+autoplay = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ASSETS/radio_mil"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ASSETS/radio_mil/StaticBody3D"]
+transform = Transform3D(7.13, 0, 0, 0, 7.13, 0, 0, 0, 7.13, -0.0104446, -0.0324211, 0.241089)
+shape = SubResource("BoxShape3D_272bh")
+
+[node name="radio_tun" parent="ASSETS" instance=ExtResource("8_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5408, 0, 0)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="ASSETS/radio_tun"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.63131, 0)
+stream = ExtResource("8_kek77")
+autoplay = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ASSETS/radio_tun"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ASSETS/radio_tun/StaticBody3D"]
+transform = Transform3D(7.13, 0, 0, 0, 7.13, 0, 0, 0, 7.13, -0.0104446, -0.0324211, 0.241089)
+shape = SubResource("BoxShape3D_272bh")
+
+[node name="leaf_tree" parent="ASSETS" instance=ExtResource("9_kek77")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 39.7559, -0.712725, 40.6071)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ASSETS/leaf_tree"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ASSETS/leaf_tree/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.106632, 0.550842, 0)
+shape = SubResource("CylinderShape3D_dg77c")
+
+[node name="naked_tree" parent="ASSETS" instance=ExtResource("10_4c57u")]
+transform = Transform3D(-0.136249, 0, 3.99768, 0, 4, 0, -3.99768, 0, -0.136249, 26.76, -0.26919, 44.0216)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ASSETS/naked_tree"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ASSETS/naked_tree/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.157352, 1.11342, -0.0598922)
+shape = SubResource("CylinderShape3D_ycdy4")
+
+[node name="train" parent="ASSETS" instance=ExtResource("11_efxa6")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 4.64225, 62.8699)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ASSETS/train"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ASSETS/train/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00564575, 0, -0.32605)
+shape = SubResource("BoxShape3D_dg77c")
+
+[node name="track" parent="ASSETS" instance=ExtResource("12_dg77c")]
+transform = Transform3D(-1.9233e-07, 0, 4.4, 0, 4.4, 0, -4.4, 0, -1.9233e-07, 0.0467069, 0.131104, 42.3821)
+
 [node name="UI" parent="." instance=ExtResource("1_0xm2m")]
 
 [node name="Environment" parent="." instance=ExtResource("2_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.7933, -34.6795, -5.85846)
 
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 4.53174, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 573.981, 71.4889, 602.399)
 
 [node name="Terrain3D" type="Terrain3D" parent="."]
 data_directory = "res://world"
 material = SubResource("Terrain3DMaterial_272bh")
 assets = ExtResource("5_lquwl")
+show_grid = true
+show_region_grid = true
 top_level = true
 metadata/_edit_lock_ = true
-
-[node name="radio_stat" parent="." instance=ExtResource("8_5vw27")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.3888, -0.16007, -0.25942)
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="radio_stat"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.63131, 0)
-stream = ExtResource("6_7mycd")
-autoplay = true
-
-[node name="StaticBody3D" type="StaticBody3D" parent="radio_stat"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="radio_stat/StaticBody3D"]
-transform = Transform3D(7.13, 0, 0, 0, 7.13, 0, 0, 0, 7.13, -0.0104446, -0.0324211, 0.241089)
-shape = SubResource("BoxShape3D_272bh")
-
-[node name="radio_mil" parent="." instance=ExtResource("8_5vw27")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30.7373)
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="radio_mil"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08383, 3.6097, -0.0351562)
-stream = ExtResource("7_5vw27")
-autoplay = true
-
-[node name="StaticBody3D" type="StaticBody3D" parent="radio_mil"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="radio_mil/StaticBody3D"]
-transform = Transform3D(7.13, 0, 0, 0, 7.13, 0, 0, 0, 7.13, -0.0104446, -0.0324211, 0.241089)
-shape = SubResource("BoxShape3D_272bh")
-
-[node name="radio_tun" parent="." instance=ExtResource("8_5vw27")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5408, 0, 0)
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="radio_tun"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.63131, 0)
-stream = ExtResource("8_kek77")
-autoplay = true
-
-[node name="StaticBody3D" type="StaticBody3D" parent="radio_tun"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="radio_tun/StaticBody3D"]
-transform = Transform3D(7.13, 0, 0, 0, 7.13, 0, 0, 0, 7.13, -0.0104446, -0.0324211, 0.241089)
-shape = SubResource("BoxShape3D_272bh")
-
-[node name="winter_tree8" parent="." instance=ExtResource("9_kek77")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -2.85696, -0.712725, 7.05317)
-
-[node name="winter_tree9" parent="." instance=ExtResource("9_kek77")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 6.23783, -0.712725, 40.6071)
-
-[node name="winter_tree14" parent="." instance=ExtResource("10_4c57u")]
-transform = Transform3D(3.4766, 0, -1.97819, 0, 4, 0, 1.97819, 0, 3.4766, 2.87253, -0.26919, 36.6602)
-
-[node name="winter_tree15" parent="." instance=ExtResource("10_4c57u")]
-transform = Transform3D(1.5818, 0, -3.67395, 0, 4, 0, 3.67395, 0, 1.5818, -5.6561, -0.26919, 36.6602)
-
-[node name="winter_tree16" parent="." instance=ExtResource("10_4c57u")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -5.6561, -0.26919, 44.0216)
-
-[node name="winter_tree17" parent="." instance=ExtResource("10_4c57u")]
-transform = Transform3D(-0.136249, 0, 3.99768, 0, 4, 0, -3.99768, 0, -0.136249, 8.38274, -0.26919, 44.0216)
-
-[node name="train" parent="." instance=ExtResource("11_efxa6")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 4.64225, 62.8699)
-
-[node name="track" parent="." instance=ExtResource("12_dg77c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.277393, 19.7222)
