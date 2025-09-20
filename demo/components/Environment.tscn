@@ -62,8 +62,8 @@ shader_parameter/cirrus_sky_tint_fade = 0.5
 shader_parameter/cirrus_intensity = 10.0
 shader_parameter/cirrus_size = 1.0
 shader_parameter/cirrus_uv = Vector2(0.16, 0.11)
-shader_parameter/cirrus_position1 = Vector2(0.544812, 0.544812)
-shader_parameter/cirrus_position2 = Vector2(0.544812, 0.544812)
+shader_parameter/cirrus_position1 = Vector2(0.333165, 0.333164)
+shader_parameter/cirrus_position2 = Vector2(0.333165, 0.333164)
 shader_parameter/cirrus_day_color = Color(0.824, 0.875, 1, 1)
 shader_parameter/cirrus_horizon_light_color = Color(0.98, 0.43, 0.15, 1)
 shader_parameter/cirrus_night_color = Color(0.09, 0.094, 0.129, 1)
@@ -76,7 +76,7 @@ shader_parameter/cumulus_noise_freq = 2.7
 shader_parameter/cumulus_sky_tint_fade = 0.0
 shader_parameter/cumulus_intensity = 0.6
 shader_parameter/cumulus_size = 0.6
-shader_parameter/cumulus_position = Vector2(2.72407, 2.72407)
+shader_parameter/cumulus_position = Vector2(1.66589, 1.66561)
 shader_parameter/cumulus_texture = ExtResource("3_816jh")
 shader_parameter/cumulus_day_color = Color(0.823529, 0.87451, 1, 1)
 shader_parameter/cumulus_horizon_light_color = Color(0.98, 0.43, 0.15, 1)
@@ -89,7 +89,7 @@ shader_parameter/azimuthal_grid_rotation_offset = 0.03
 shader_parameter/show_equatorial_grid = false
 shader_parameter/equatorial_grid_color = Color(0, 0.75, 1, 1)
 shader_parameter/equatorial_grid_rotation_offset = 0.03
-shader_parameter/moon_matrix = Basis(3.72529e-09, -0.187706, -0.982225, -0.977457, 0.207381, -0.039631, 0.211134, 0.960083, -0.183474)
+shader_parameter/moon_matrix = Basis(7.45058e-09, -0.187706, -0.982225, -0.977457, 0.207381, -0.0396311, 0.211134, 0.960083, -0.183475)
 
 [sub_resource type="Sky" id="Sky_2bg0m"]
 sky_material = SubResource("ShaderMaterial_v3lfm")
@@ -116,6 +116,8 @@ editor_time_enabled = false
 game_time_enabled = false
 current_time = 0.0
 moon_energy = -0.03
+wind_speed = 0.9
+wind_direction = 2.35619
 metadata/_custom_type_script = "uid://deo0gxkmk2ahd"
 
 [node name="SunLight" type="DirectionalLight3D" parent="Sky3D"]
@@ -127,7 +129,6 @@ light_energy = 0.0
 transform = Transform3D(0, -0.977457, 0.211134, -0.187706, 0.207381, 0.960083, -0.982225, -0.039631, -0.183474, 0.211134, 0.960083, -0.183474)
 light_color = Color(0.572549, 0.776471, 0.956863, 1)
 light_energy = -0.0288025
-shadow_enabled = true
 
 [node name="SkyDome" type="Node" parent="Sky3D"]
 script = ExtResource("9_qe0by")
@@ -137,6 +138,8 @@ moon_light_energy = -0.03
 moon_size = 0.05
 moon_azimuth = -0.855378
 moon_altitude = -0.283497
+wind_speed = 0.9
+wind_direction = 2.35619
 cumulus_thickness = 0.2
 cumulus_coverage = 0.7
 cumulus_size = 0.6
