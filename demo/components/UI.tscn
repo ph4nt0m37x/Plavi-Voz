@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://d2jihfohphuue"]
+[gd_scene load_steps=3 format=3 uid="uid://d2jihfohphuue"]
 
 [ext_resource type="Script" uid="uid://dne6na1m4xku8" path="res://demo/src/UI.gd" id="1_why5e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_reujc"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -64,3 +66,23 @@ offset_left = 6.0
 offset_top = 310.0
 offset_right = 246.0
 offset_bottom = 319.0
+
+[node name="DialoguePanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 865.0
+offset_top = 925.0
+offset_right = 905.0
+offset_bottom = 965.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_reujc")
+
+[node name="DialogueLabel" type="Label" parent="DialoguePanel"]
+layout_mode = 0
+offset_left = -264.0
+offset_top = -30.0
+offset_right = 536.0
+offset_bottom = 30.0
+theme_override_font_sizes/font_size = 24
+text = "Example text right here!
+"
+horizontal_alignment = 1
+autowrap_mode = 2
