@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://eftwowae5o82"]
+[gd_scene load_steps=19 format=3 uid="uid://eftwowae5o82"]
 
 [ext_resource type="PackedScene" uid="uid://d2jihfohphuue" path="res://demo/components/UI.tscn" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://domhm87hbhbg1" path="res://player/Player.tscn" id="1_ig7tw"]
@@ -8,6 +8,10 @@
 [ext_resource type="AudioStream" uid="uid://fu06kfkpvrji" path="res://sounds/radio/mil.mp3" id="7_5vw27"]
 [ext_resource type="PackedScene" uid="uid://b0wd42uq4xkpl" path="res://models/radio.glb" id="8_5vw27"]
 [ext_resource type="AudioStream" uid="uid://dykcsh40pwe5n" path="res://sounds/radio/tuning7150.mp3" id="8_kek77"]
+[ext_resource type="PackedScene" uid="uid://noto36v2iuxd" path="res://models/winter_tree8.glb" id="9_kek77"]
+[ext_resource type="PackedScene" uid="uid://coxaw8mesmirf" path="res://models/winter_tree14.glb" id="10_4c57u"]
+[ext_resource type="PackedScene" uid="uid://bsit7ja17bna8" path="res://models/train.glb" id="11_efxa6"]
+[ext_resource type="PackedScene" uid="uid://c0pd5cochrdc2" path="res://models/track.glb" id="12_dg77c"]
 
 [sub_resource type="GDScript" id="GDScript_7mycd"]
 script/source = "@tool
@@ -81,13 +85,16 @@ size = Vector3(0.635742, 0.266663, 0.822021)
 [node name="Main" type="Node3D"]
 script = SubResource("GDScript_7mycd")
 
+[node name="WORKLIGHT" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 791.93, 0)
+
 [node name="UI" parent="." instance=ExtResource("1_0xm2m")]
 
 [node name="Environment" parent="." instance=ExtResource("2_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.7933, -34.6795, -5.85846)
 
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 95.787, 1.12614, 314.244)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 4.53174, 0)
 
 [node name="Terrain3D" type="Terrain3D" parent="."]
 data_directory = "res://world"
@@ -97,7 +104,7 @@ top_level = true
 metadata/_edit_lock_ = true
 
 [node name="radio_stat" parent="." instance=ExtResource("8_5vw27")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.2605, 1.84064, 267.402)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.3888, -0.16007, -0.25942)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="radio_stat"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.63131, 0)
@@ -111,7 +118,7 @@ transform = Transform3D(7.13, 0, 0, 0, 7.13, 0, 0, 0, 7.13, -0.0104446, -0.03242
 shape = SubResource("BoxShape3D_272bh")
 
 [node name="radio_mil" parent="." instance=ExtResource("8_5vw27")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 148.008, -27.2364, 230.845)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30.7373)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="radio_mil"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08383, 3.6097, -0.0351562)
@@ -125,7 +132,7 @@ transform = Transform3D(7.13, 0, 0, 0, 7.13, 0, 0, 0, 7.13, -0.0104446, -0.03242
 shape = SubResource("BoxShape3D_272bh")
 
 [node name="radio_tun" parent="." instance=ExtResource("8_5vw27")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132.401, 1.16417, 364.907)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5408, 0, 0)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="radio_tun"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.63131, 0)
@@ -138,5 +145,26 @@ autoplay = true
 transform = Transform3D(7.13, 0, 0, 0, 7.13, 0, 0, 0, 7.13, -0.0104446, -0.0324211, 0.241089)
 shape = SubResource("BoxShape3D_272bh")
 
-[node name="WORKLIGHT" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 791.93, 0)
+[node name="winter_tree8" parent="." instance=ExtResource("9_kek77")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -2.85696, -0.712725, 7.05317)
+
+[node name="winter_tree9" parent="." instance=ExtResource("9_kek77")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 6.23783, -0.712725, 40.6071)
+
+[node name="winter_tree14" parent="." instance=ExtResource("10_4c57u")]
+transform = Transform3D(3.4766, 0, -1.97819, 0, 4, 0, 1.97819, 0, 3.4766, 2.87253, -0.26919, 36.6602)
+
+[node name="winter_tree15" parent="." instance=ExtResource("10_4c57u")]
+transform = Transform3D(1.5818, 0, -3.67395, 0, 4, 0, 3.67395, 0, 1.5818, -5.6561, -0.26919, 36.6602)
+
+[node name="winter_tree16" parent="." instance=ExtResource("10_4c57u")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -5.6561, -0.26919, 44.0216)
+
+[node name="winter_tree17" parent="." instance=ExtResource("10_4c57u")]
+transform = Transform3D(-0.136249, 0, 3.99768, 0, 4, 0, -3.99768, 0, -0.136249, 8.38274, -0.26919, 44.0216)
+
+[node name="train" parent="." instance=ExtResource("11_efxa6")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 4.64225, 62.8699)
+
+[node name="track" parent="." instance=ExtResource("12_dg77c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.277393, 19.7222)
