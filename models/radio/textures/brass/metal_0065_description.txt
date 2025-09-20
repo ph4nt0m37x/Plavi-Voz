@@ -1,8 +1,0 @@
-Name:
-Worn Brass Metal Texture (Metal 0065)
-
-Description:
-It is an old brass metal plate having a lot of specks and rust on the surface. It can be a texture for metallic wall or home decor such as vases
-
-Author:
-https://www.texturecan.com
