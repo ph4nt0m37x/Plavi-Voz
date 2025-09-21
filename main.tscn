@@ -451,7 +451,7 @@ shape = SubResource("BoxShape3D_272bh")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.7933, -34.6795, -5.85846)
 
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 1789.78, 0.0975699, 632.923)
+transform = Transform3D(-0.513092, 0, 0.858333, 0, 1, 0, -0.858334, 0, -0.513092, 1789.78, 0.0975699, 632.923)
 
 [node name="Terrain3D" type="Terrain3D" parent="."]
 data_directory = "res://world"
