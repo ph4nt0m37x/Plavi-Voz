@@ -4,19 +4,10 @@ Plavi Voz is a mini 3D story-driven game built in Godot with survival elements. 
 The game begins with Viktor searching for shelter to survive the night, but his ultimate goal is to reach Belgrade and find his wife, who was visiting her mother when the disaster struck.
 The story combines survival mechanics with narrative choices, culminating in Viktor trying to reach the train that promises salvation for the few remaining survivors.
 
----
-
 ## Movement
 
 The player can move using the W, A, S, and D keys to move in all directions, use Space to jump, and Shift to sprint.
 The game features dynamic footsteps, which change depending on the player’s speed and interaction with the snow-covered terrain, enhancing immersion in the winter environment.
-
-## Flashlight Mechanic
-
-The player’s mechanical flashlight is an essential tool for exploring dark areas and finding hidden clues.
-To generate power, the flashlight must be manually cranked by pressing R, but it needs to be turned off while doing so.
-Once charged, the flashlight can be toggled on and off with F, allowing the player to conserve power when it is not needed.
-Using the flashlight wisely is key, as it gradually consumes energy while turned on.
 
 ## Dialogue
 
@@ -31,10 +22,23 @@ At each stage, the player is presented with multiple options, but only the corre
 If the player makes a mistake, helpful hints are provided, and they are allowed to retry until they get it right.
 Successfully choosing all three correct choices results in the radio being repaired, allowing the story to progress.
 
-## Second minigame
+## Flashlight Mechanic
+
+The player’s mechanical flashlight is an essential tool for exploring dark areas and finding hidden clues.
+To generate power, the flashlight must be manually cranked by pressing R, but it needs to be turned off while doing so.
+Once charged, the flashlight can be toggled on and off with F, allowing the player to conserve power when it is not needed.
+Using the flashlight wisely is key, as it gradually consumes energy while turned on.
+
+## Exploring the map
+
+The player can equip the map by pressing M, bringing up a hand-held map that displays the surrounding terrain, landmarks, and key locations such as the train tracks, shelters, or dangerous zones.
+While viewing the map, the player can study the environment, decide which routes to take, and plan where to avoid hazards like radiation, hostile creatures, or blocked paths.
+Landmarks and clues help the player orient themselveves.
+
 
 ## Exploration rewards
-Throughout the game, players can discover small, optional story moments that are not required to progress. This includes things like old photographs lying around, interesting objects, or little environmental details that add depth and flavor to the world.
+Throughout the game, players can discover small, optional story moments that are not required to progress.
+This includes things like old photographs lying around, restricted daedly areas, or little environmental details that add depth and flavor to the world.
 Interacting with these optional elements gives extra context to the environment and disaster that occured, enriching the story.
 
 
@@ -46,6 +50,7 @@ We also used Godot’s weather system for snow and atmospheric effects, and adde
 
 
 ## Preview
+
 
 
 
@@ -84,3 +89,10 @@ We also used Godot’s weather system for snow and atmospheric effects, and adde
     - https://pixabay.com/
 - Shaders
     - https://godotshaders.com/shader/screen-space-frost-with-volumetric-snow/
+
+### Inspiration
+
+Our game was heavily inspired by The Long Dark, as a winter survival game. We wanted to capture the feel of Yugoslavia through the lens of our parents, who lived during that period, and aimed to evoke not only the aesthetics of that era, but also the tension and intrigue surrounding the disaster itself, with a sense of mystery that hints at the hidden stories and unanswered questions of the politics of that era.
+Marko modeled an authentic Yugoslavian radio, and we found a vintage manual online to accurately replicate how it functions.
+While we really wanted to create a fully realized world, time constraints meant we could not expand the game as much as we had hoped.
+Nevertheless, this project represents a glimpse of the vision we would love to continue exploring in our free time.
