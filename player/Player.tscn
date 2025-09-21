@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://domhm87hbhbg1"]
+[gd_scene load_steps=24 format=3 uid="uid://domhm87hbhbg1"]
 
 [ext_resource type="Script" uid="uid://dajlr3n5wjwmb" path="res://player/Player.gd" id="1_nm1yx"]
 [ext_resource type="Script" uid="uid://b62ppvc03a6b1" path="res://demo/src/CameraManager.gd" id="2_loos7"]
@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://d1nulpcd72fxi" path="res://sounds/ambiance/hand-crank-generator-slow-76850.mp3" id="12_b32pr"]
 [ext_resource type="AudioStream" uid="uid://cvskk2xnjmeth" path="res://sounds/ambiance/paper-rustle-81855.mp3" id="12_d4g0h"]
 [ext_resource type="AudioStream" uid="uid://cl46aqeyooudh" path="res://sounds/ambiance/paper-rustle-reverse-81855.mp3" id="13_v4f8b"]
+[ext_resource type="Texture2D" uid="uid://fjsecyn74fov" path="res://models/textures/map.png" id="15_v4f8b"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_mox7b"]
 streams_count = 8
@@ -27,6 +28,9 @@ stream_6/stream = ExtResource("9_7q5qd")
 stream_7/stream = ExtResource("10_4qnbb")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_smq6u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t8epa"]
+albedo_texture = ExtResource("15_v4f8b")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_b32pr"]
 
@@ -102,7 +106,7 @@ spring_length = -0.7
 [node name="MapMeshInstance3D" type="MeshInstance3D" parent="MapArm3D"]
 unique_name_in_owner = true
 transform = Transform3D(0.8, 0, 0, 0, 0.69282, -0.4, 0, 0.4, 0.69282, 0, 0.991232, -1.54988)
-visible = false
+material_override = SubResource("StandardMaterial3D_t8epa")
 mesh = SubResource("PlaneMesh_b32pr")
 skeleton = NodePath("")
 script = SubResource("GDScript_b32pr")
