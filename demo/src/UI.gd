@@ -9,8 +9,6 @@ var visible_mode: int = 1
 func _init() -> void:
 	RenderingServer.set_debug_generate_wireframes(true)
 
-
-
 func _process(p_delta) -> void:
 	$Label.text = "FPS: %d\n" % Engine.get_frames_per_second()
 	$Label.text += str(terrain.get_data().get_texture_id(player.global_position))
