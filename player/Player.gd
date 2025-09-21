@@ -1,5 +1,5 @@
 extends CharacterBody3D
-@export var MOVE_SPEED: float = 50.0
+@export var MOVE_SPEED: float = 5.0
 @export var JUMP_SPEED: float = 2.0
 @export var headbob_freq := 2
 @export var headbob_amp := .04
@@ -253,14 +253,14 @@ func get_camera_relative_input() -> Vector3:
 		input_dir -= %Arm.global_transform.basis.z
 	if Input.is_key_pressed(KEY_S): # Backward
 		input_dir += %Arm.global_transform.basis.z
-	if Input.is_key_pressed(KEY_E) or Input.is_key_pressed(KEY_SPACE): # Up
-		velocity.y += JUMP_SPEED + MOVE_SPEED * .016
-	if Input.is_key_pressed(KEY_Q): # Down
-		velocity.y -= JUMP_SPEED + MOVE_SPEED * .016
-	if Input.is_key_pressed(KEY_KP_ADD) or Input.is_key_pressed(KEY_EQUAL):
-		MOVE_SPEED = clamp(MOVE_SPEED + .5, 5, 9999)
-	if Input.is_key_pressed(KEY_KP_SUBTRACT) or Input.is_key_pressed(KEY_MINUS):
-		MOVE_SPEED = clamp(MOVE_SPEED - .5, 5, 9999)
+	#if Input.is_key_pressed(KEY_E) or Input.is_key_pressed(KEY_SPACE): # Up
+		#velocity.y += JUMP_SPEED + MOVE_SPEED * .016
+	#if Input.is_key_pressed(KEY_Q): # Down
+		#velocity.y -= JUMP_SPEED + MOVE_SPEED * .016
+	#if Input.is_key_pressed(KEY_KP_ADD) or Input.is_key_pressed(KEY_EQUAL):
+		#MOVE_SPEED = clamp(MOVE_SPEED + .5, 5, 9999)
+	#if Input.is_key_pressed(KEY_KP_SUBTRACT) or Input.is_key_pressed(KEY_MINUS):
+		#MOVE_SPEED = clamp(MOVE_SPEED - .5, 5, 9999)
 	return input_dir
 
 func _input(p_event: InputEvent) -> void:
