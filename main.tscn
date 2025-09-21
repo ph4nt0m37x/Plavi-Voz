@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://wugg80k0extw"]
+[gd_scene load_steps=28 format=3 uid="uid://wugg80k0extw"]
 
 [ext_resource type="PackedScene" uid="uid://d2jihfohphuue" path="res://demo/components/UI.tscn" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://domhm87hbhbg1" path="res://player/Player.tscn" id="1_ig7tw"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://noto36v2iuxd" path="res://models/winter_tree8.glb" id="9_kek77"]
 [ext_resource type="PackedScene" uid="uid://coxaw8mesmirf" path="res://models/winter_tree14.glb" id="10_4c57u"]
 [ext_resource type="PackedScene" uid="uid://bsit7ja17bna8" path="res://models/train.glb" id="11_efxa6"]
+[ext_resource type="Texture2D" uid="uid://ckwhvrttubn8r" path="res://models/textures/wife.jpg" id="11_vivmo"]
 [ext_resource type="PackedScene" uid="uid://c0pd5cochrdc2" path="res://models/track.glb" id="12_dg77c"]
 [ext_resource type="PackedScene" uid="uid://co1d3nhohi77f" path="res://wolf_king_0726042125_refine.fbx" id="13_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://b1cwydg4hkidh" path="res://models/car.glb" id="14_vivmo"]
@@ -52,6 +53,11 @@ radius = 0.355469
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_272bh"]
 size = Vector3(0.635742, 0.266663, 0.822021)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2cqfq"]
+albedo_texture = ExtResource("11_vivmo")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_yaehf"]
 
 [sub_resource type="Gradient" id="Gradient_272bh"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -444,6 +450,13 @@ autoplay = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ASSETS/RadioArea/radio_tun/StaticBody3D"]
 transform = Transform3D(7.13, 0, 0, 0, 7.13, 0, 0, 0, 7.13, -0.0104446, -0.0324211, 0.241089)
 shape = SubResource("BoxShape3D_272bh")
+
+[node name="Pictures" type="Node" parent="ASSETS"]
+
+[node name="wife_picture" type="MeshInstance3D" parent="ASSETS/Pictures"]
+transform = Transform3D(0.313331, 0.0121812, 0.389455, -0.00763576, 0.499852, -0.00949085, -0.389571, 0, 0.313424, 1743.14, 0.239806, 647.42)
+material_override = SubResource("StandardMaterial3D_2cqfq")
+mesh = SubResource("PlaneMesh_yaehf")
 
 [node name="UI" parent="." instance=ExtResource("1_0xm2m")]
 
