@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://h1j3piaxgxc5"
+path="res://.godot/imported/Radiation sound - extreme.mp3-bb90d4ea6cab09c5f9d1a763cb9b6038.mp3str"
+
+[deps]
+
+source_file="res://sounds/ambiance/Radiation sound - extreme.mp3"
+dest_files=["res://.godot/imported/Radiation sound - extreme.mp3-bb90d4ea6cab09c5f9d1a763cb9b6038.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
