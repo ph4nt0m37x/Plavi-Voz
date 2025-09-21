@@ -105,7 +105,6 @@ _shader_parameters = {
 }
 world_background = 0
 auto_shader = true
-show_region_grid = true
 
 [node name="Main" type="Node3D"]
 script = SubResource("GDScript_7mycd")
@@ -500,8 +499,6 @@ transform = Transform3D(-0.513092, 0, 0.858333, 0, 1, 0, -0.858334, 0, -0.513092
 data_directory = "res://world"
 material = SubResource("Terrain3DMaterial_272bh")
 assets = ExtResource("5_lquwl")
-show_grid = true
-show_region_grid = true
 top_level = true
 metadata/_edit_lock_ = true
 
