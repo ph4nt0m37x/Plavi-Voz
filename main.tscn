@@ -16,15 +16,15 @@
 [ext_resource type="Texture2D" uid="uid://crujbbev54pb5" path="res://models/textures/guy.jpg" id="12_0odxb"]
 [ext_resource type="PackedScene" uid="uid://c0pd5cochrdc2" path="res://models/track.glb" id="12_dg77c"]
 [ext_resource type="PackedScene" uid="uid://sh6q6wiaq5wn" path="res://models/Sign_current.glb" id="12_yaehf"]
-[ext_resource type="Script" path="res://death_zone.gd" id="13_074og"]
+[ext_resource type="Script" uid="uid://btdnq71t3qsoc" path="res://death_zone.gd" id="13_074og"]
 [ext_resource type="Texture2D" uid="uid://sikdcb8url2x" path="res://models/textures/girlwdoll.jpg" id="13_lswn8"]
 [ext_resource type="PackedScene" uid="uid://co1d3nhohi77f" path="res://wolf_king_0726042125_refine.fbx" id="13_ycdy4"]
-[ext_resource type="Script" path="res://warning_zone.gd" id="14_074og"]
+[ext_resource type="Script" uid="uid://cw5v8gbrhm268" path="res://warning_zone.gd" id="14_074og"]
 [ext_resource type="AudioStream" uid="uid://h1j3piaxgxc5" path="res://sounds/ambiance/Radiation sound - extreme.mp3" id="14_82xsv"]
 [ext_resource type="Texture2D" uid="uid://dt2eyojiq7hii" path="res://models/textures/soldiers.jpg" id="14_lswn8"]
 [ext_resource type="PackedScene" uid="uid://b1cwydg4hkidh" path="res://models/car.glb" id="14_vivmo"]
-[ext_resource type="Script" path="res://wolf_zone.gd" id="17_d13ii"]
-[ext_resource type="Script" path="res://end_game.gd" id="18_d13ii"]
+[ext_resource type="Script" uid="uid://bqwmiyav0rqyv" path="res://wolf_zone.gd" id="17_d13ii"]
+[ext_resource type="Script" uid="uid://cqpakjvqpcawc" path="res://end_game.gd" id="18_d13ii"]
 [ext_resource type="PackedScene" uid="uid://cglgt56aqshqp" path="res://scenes/game_over.tscn" id="19_cegan"]
 
 [sub_resource type="GDScript" id="GDScript_7mycd"]
@@ -147,11 +147,28 @@ script = SubResource("GDScript_7mycd")
 
 [node name="WORKLIGHT" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 791.93, 0)
+visible = false
 
 [node name="ASSETS" type="Node" parent="."]
 
 [node name="train" parent="ASSETS" instance=ExtResource("11_efxa6")]
 transform = Transform3D(-34.1095, 0, 36.5588, 0, 50, 0, -36.5588, 0, -34.1095, -171.83, 44.5322, 764.818)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="ASSETS/train"]
+transform = Transform3D(-0.999987, 0, 0.00511397, 0, 1, 0, -0.00511397, 0, -0.999987, -0.247717, -0.146559, 1.59923)
+light_color = Color(1, 1, 0.780392, 1)
+light_energy = 10.0
+spot_range = 1000.0
+spot_attenuation = 0.0
+spot_angle = 10.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="ASSETS/train"]
+transform = Transform3D(-0.999987, 0, 0.00511397, 0, 1, 0, -0.00511397, 0, -0.999987, 0.271818, -0.146559, 1.60945)
+light_color = Color(1, 1, 0.780392, 1)
+light_energy = 10.0
+spot_range = 1000.0
+spot_attenuation = 0.0
+spot_angle = 10.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ASSETS/train"]
 
