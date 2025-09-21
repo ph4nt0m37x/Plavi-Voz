@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://1dieladqjyo"
+path="res://.godot/imported/wolves.dialogue-5a2ccc1133d92e3b8c88fb399070d9a3.tres"
+
+[deps]
+
+source_file="res://dialogues/wolves.dialogue"
+dest_files=["res://.godot/imported/wolves.dialogue-5a2ccc1133d92e3b8c88fb399070d9a3.tres"]
+
+[params]
+
+defaults=true

@@ -288,9 +288,11 @@ func _input(p_event: InputEvent) -> void:
 			
 func _start_dialogue(dialogue: DialogueResource, start_node: String):
 	can_move = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	DialogueManager.show_dialogue_balloon(dialogue, start_node)
 	await DialogueManager.dialogue_ended
 	_on_dialogue_ended()
 
 func _on_dialogue_ended():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	can_move = true

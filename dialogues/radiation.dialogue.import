@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://drtmibbc8y8no"
+path="res://.godot/imported/radiation.dialogue-5515b12951114e23185a9cb20a02d9ce.tres"
+
+[deps]
+
+source_file="res://dialogues/radiation.dialogue"
+dest_files=["res://.godot/imported/radiation.dialogue-5515b12951114e23185a9cb20a02d9ce.tres"]
+
+[params]
+
+defaults=true
