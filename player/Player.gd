@@ -41,17 +41,17 @@ var has_map : bool = false
 
 var map_toggle: bool = false
 
-@export var first_person: bool = false: 
+@export var first_person: bool = true: 
 	set(p_value):
 		first_person = p_value
 		if first_person:
-			$Body.visible = true
-			create_tween().tween_property($CameraManager/Arm, "spring_length", 6.0, .33)
-		else:
 			var tween: Tween = create_tween()
 			tween.tween_property($CameraManager/Arm, "spring_length", 0.0, .33)
 			tween.tween_callback($Body.set_visible.bind(false))
-		
+		else:
+			$Body.visible = true
+			create_tween().tween_property($CameraManager/Arm, "spring_length", 6.0, .33)
+
 @export var gravity_enabled: bool = true :
 	set(p_value):
 		gravity_enabled = p_value
@@ -272,8 +272,8 @@ func _input(p_event: InputEvent) -> void:
 	
 	elif p_event is InputEventKey:
 		if p_event.pressed:
-			if p_event.keycode == KEY_V:
-				first_person = ! first_person
+			#if p_event.keycode == KEY_V:
+				#first_person = ! first_person
 			#elif p_event.keycode == KEY_G:
 				#gravity_enabled = ! gravity_enabled
 			#elif p_event.keycode == KEY_C:
