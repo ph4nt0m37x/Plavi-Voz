@@ -60,10 +60,14 @@ We also used Godot’s weather system for snow and atmospheric effects, and adde
 - Dialogue Manager
     - https://godotengine.org/asset-library/asset/3654
 - Tree Assets
-    - https://www.cgtrader.com/free-3d-models/plant/other/winter-tree-0
-    - https://www.cgtrader.com/items/5972193/download-page
     - https://www.cgtrader.com/free-3d-models/plant/other/winter-tree-2
     - https://www.cgtrader.com/free-3d-models/plant/other/winter-tree-3
+- Medkit Asset
+  - https://www.cgtrader.com/free-3d-models/science/medical/medical-kit-cc83280c-3b98-4410-9f17-cc5930fac1bd
+- Car Asset
+  - https://www.cgtrader.com/free-3d-models/car/suv/uaz-3d
+- Wolf Asset
+  - https://www.cgtrader.com/free-3d-models/animals/mammal/wolf-king-8a9a9e58-ea52-4928-b435-bd21bce75e9d
 
 ### Textures
 
