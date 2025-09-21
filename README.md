@@ -65,8 +65,6 @@ We also used Godot’s weather system for snow and atmospheric effects, and adde
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/8c60a67d-cd71-40cf-8320-c37f1219d924" />
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/50f84f71-e7b3-429c-9e88-f5a1da2d1914" />
-
 ## Inspiration
 
 Our game was heavily inspired by The Long Dark, as a winter survival game. We wanted to capture the feel of Yugoslavia through the lens of our parents, who lived during that period, and aimed to evoke not only the aesthetics of that era, but also the tension and intrigue surrounding the disaster itself, with a sense of mystery that hints at the hidden stories and unanswered questions of the politics of that era.
