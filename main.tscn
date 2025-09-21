@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://wugg80k0extw"]
+[gd_scene load_steps=63 format=3 uid="uid://wugg80k0extw"]
 
 [ext_resource type="PackedScene" uid="uid://d2jihfohphuue" path="res://demo/components/UI.tscn" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://domhm87hbhbg1" path="res://player/Player.tscn" id="1_ig7tw"]
@@ -13,16 +13,30 @@
 [ext_resource type="PackedScene" uid="uid://coxaw8mesmirf" path="res://models/winter_tree14.glb" id="10_4c57u"]
 [ext_resource type="PackedScene" uid="uid://bsit7ja17bna8" path="res://models/train.glb" id="11_efxa6"]
 [ext_resource type="Texture2D" uid="uid://ckwhvrttubn8r" path="res://models/textures/wife.jpg" id="11_vivmo"]
+[ext_resource type="Texture2D" uid="uid://crujbbev54pb5" path="res://models/textures/guy.jpg" id="12_0odxb"]
 [ext_resource type="PackedScene" uid="uid://c0pd5cochrdc2" path="res://models/track.glb" id="12_dg77c"]
 [ext_resource type="PackedScene" uid="uid://sh6q6wiaq5wn" path="res://models/Sign_current.glb" id="12_yaehf"]
-[ext_resource type="Script" uid="uid://btdnq71t3qsoc" path="res://death_zone.gd" id="13_074og"]
+[ext_resource type="Script" path="res://death_zone.gd" id="13_074og"]
+[ext_resource type="PackedScene" uid="uid://d00641x0nwddj" path="res://models/uploads_files_2880858_Bag.glb" id="13_htxhm"]
+[ext_resource type="Texture2D" uid="uid://sikdcb8url2x" path="res://models/textures/girlwdoll.jpg" id="13_lswn8"]
 [ext_resource type="PackedScene" uid="uid://co1d3nhohi77f" path="res://wolf_king_0726042125_refine.fbx" id="13_ycdy4"]
-[ext_resource type="Script" uid="uid://cw5v8gbrhm268" path="res://warning_zone.gd" id="14_074og"]
+[ext_resource type="Script" path="res://warning_zone.gd" id="14_074og"]
 [ext_resource type="AudioStream" uid="uid://h1j3piaxgxc5" path="res://sounds/ambiance/Radiation sound - extreme.mp3" id="14_82xsv"]
+[ext_resource type="Texture2D" uid="uid://dt2eyojiq7hii" path="res://models/textures/soldiers.jpg" id="14_lswn8"]
 [ext_resource type="PackedScene" uid="uid://b1cwydg4hkidh" path="res://models/car.glb" id="14_vivmo"]
-[ext_resource type="Script" uid="uid://bqwmiyav0rqyv" path="res://wolf_zone.gd" id="17_d13ii"]
-[ext_resource type="Script" uid="uid://cqpakjvqpcawc" path="res://end_game.gd" id="18_d13ii"]
+[ext_resource type="Script" path="res://photos.gd" id="16_jq2sk"]
+[ext_resource type="Script" path="res://wolf_zone.gd" id="17_d13ii"]
+[ext_resource type="Script" path="res://end_game.gd" id="18_d13ii"]
 [ext_resource type="PackedScene" uid="uid://cglgt56aqshqp" path="res://scenes/game_over.tscn" id="19_cegan"]
+[ext_resource type="Script" uid="uid://h1af4w0q4jik" path="res://map_retrieval.gd" id="22_xuqvo"]
+[ext_resource type="Texture2D" uid="uid://fjsecyn74fov" path="res://models/textures/map.png" id="23_kq58d"]
+[ext_resource type="Script" uid="uid://brm704hkd7ag7" path="res://go_to_tree.gd" id="23_qsp4k"]
+[ext_resource type="Script" path="res://lake.gd" id="27_jq2sk"]
+[ext_resource type="Script" path="res://car.gd" id="28_4k2k6"]
+[ext_resource type="Script" path="res://nearby.gd" id="29_0rl1p"]
+[ext_resource type="PackedScene" uid="uid://d2bh0jk3w2hcn" path="res://models/uploads_files_1939375_Casual_Male.glb" id="30_kq58d"]
+[ext_resource type="PackedScene" uid="uid://cyrb8o4qdm5dl" path="res://models/Sign_do_not_entere.glb" id="36_facbu"]
+[ext_resource type="PackedScene" uid="uid://bhcb8t07yq30c" path="res://models/Sign_train.glb" id="37_b1qrp"]
 
 [sub_resource type="GDScript" id="GDScript_7mycd"]
 script/source = "@tool
@@ -71,6 +85,22 @@ albedo_texture = ExtResource("11_vivmo")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_yaehf"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xuqvo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kq58d"]
+albedo_texture = ExtResource("14_lswn8")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xuqvo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a6jrf"]
+albedo_texture = ExtResource("12_0odxb")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qsp4k"]
+albedo_texture = ExtResource("13_lswn8")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4k2k6"]
+size = Vector3(1.834, 1, 1)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_cegan"]
 size = Vector3(2.96631, 1, 1)
 
@@ -78,6 +108,13 @@ size = Vector3(2.96631, 1, 1)
 size = Vector3(0.756836, 0.887573, 1)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1u8w0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_seu75"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_htxhm"]
+albedo_texture = ExtResource("23_kq58d")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jq2sk"]
 
 [sub_resource type="Gradient" id="Gradient_272bh"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -131,11 +168,28 @@ script = SubResource("GDScript_7mycd")
 
 [node name="WORKLIGHT" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 791.93, 0)
+visible = false
 
 [node name="ASSETS" type="Node" parent="."]
 
 [node name="train" parent="ASSETS" instance=ExtResource("11_efxa6")]
 transform = Transform3D(-34.1095, 0, 36.5588, 0, 50, 0, -36.5588, 0, -34.1095, -171.83, 44.5322, 764.818)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="ASSETS/train"]
+transform = Transform3D(-0.999987, 0, 0.00511397, 0, 1, 0, -0.00511397, 0, -0.999987, -0.247717, -0.146559, 1.59923)
+light_color = Color(1, 1, 0.780392, 1)
+light_energy = 10.0
+spot_range = 500.0
+spot_attenuation = 0.0
+spot_angle = 10.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="ASSETS/train"]
+transform = Transform3D(-0.999987, 0, 0.00511397, 0, 1, 0, -0.00511397, 0, -0.999987, 0.271818, -0.146559, 1.60945)
+light_color = Color(1, 1, 0.780392, 1)
+light_energy = 10.0
+spot_range = 500.0
+spot_attenuation = 0.0
+spot_angle = 10.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ASSETS/train"]
 
@@ -343,6 +397,15 @@ transform = Transform3D(27.3363, 0, -12.3583, 0, 30, 0, 12.3583, 0, 27.3363, 173
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.106632, 0.550842, 0)
 shape = SubResource("CylinderShape3D_dg77c")
 
+[node name="leaf_tree12" parent="ASSETS/Trees" instance=ExtResource("9_kek77")]
+transform = Transform3D(18.2242, 0, -8.23886, 0, 20, 0, 8.23886, 0, 18.2242, 1639.23, -11.5522, 957.591)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ASSETS/Trees/leaf_tree12"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ASSETS/Trees/leaf_tree12/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.106632, 0.550842, 0)
+shape = SubResource("CylinderShape3D_dg77c")
+
 [node name="leaf_tree3" parent="ASSETS/Trees" instance=ExtResource("9_kek77")]
 transform = Transform3D(27.3363, 0, -12.3583, 0, 30, 0, 12.3583, 0, 27.3363, 814.136, -2.88783, 1120.68)
 
@@ -443,6 +506,8 @@ transform = Transform3D(-6.0908, 0, -7.93109, 0, 10, 0, 7.93109, 0, -6.0908, 124
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="ASSETS/Wolves/wolf3"]
 stream = ExtResource("5_ryguw")
+volume_db = 20.0
+autoplay = true
 
 [node name="wolf2" parent="ASSETS/Wolves" instance=ExtResource("13_ycdy4")]
 transform = Transform3D(5.95875, 0, 8.03078, 0, 10, 0, -8.03078, 0, 5.95875, 1083.03, -30.5897, 368.791)
@@ -478,6 +543,7 @@ script = ExtResource("2_ycdy4")
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="ASSETS/RadioArea/radio_tun"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.63131, 0)
 stream = ExtResource("8_kek77")
+volume_db = -10.0
 autoplay = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ASSETS/RadioArea/radio_tun"]
@@ -488,10 +554,48 @@ shape = SubResource("BoxShape3D_272bh")
 
 [node name="Pictures" type="Node" parent="ASSETS"]
 
+[node name="OmniLight3D" type="OmniLight3D" parent="ASSETS/Pictures"]
+transform = Transform3D(-0.673682, -0.470758, 0.569684, -0.164941, 0.847196, 0.505028, -0.72038, 0.246264, -0.648388, 1644.69, -1.14278, 938.503)
+light_color = Color(1, 1, 0.780392, 1)
+omni_range = 10.0
+omni_attenuation = 1.5
+
 [node name="wife_picture" type="MeshInstance3D" parent="ASSETS/Pictures"]
 transform = Transform3D(0.313331, 0.0121812, 0.389455, -0.00763576, 0.499852, -0.00949085, -0.389571, 0, 0.313424, 1743.14, 0.239806, 647.42)
 material_override = SubResource("StandardMaterial3D_2cqfq")
 mesh = SubResource("PlaneMesh_yaehf")
+
+[node name="guy3" type="MeshInstance3D" parent="ASSETS/Pictures"]
+transform = Transform3D(0.454099, -0.124062, 0.168531, 0.138684, 0.47995, -0.0203691, -0.156719, 0.0652445, 0.4703, 1498.17, -3.90909, 581.084)
+material_override = SubResource("StandardMaterial3D_xuqvo")
+material_overlay = SubResource("StandardMaterial3D_kq58d")
+mesh = SubResource("PlaneMesh_xuqvo")
+
+[node name="uploads_files_2880858_Bag" parent="ASSETS/Pictures" instance=ExtResource("13_htxhm")]
+transform = Transform3D(-0.336841, -0.235379, 0.284842, -0.0824708, 0.423598, 0.252514, -0.36019, 0.123132, -0.324194, 1643.58, -1.64844, 937.376)
+
+[node name="Node" type="Node" parent="ASSETS/Pictures"]
+
+[node name="guy" type="MeshInstance3D" parent="ASSETS/Pictures/Node"]
+transform = Transform3D(-0.648462, 0.224741, 0.727316, -0.127856, 0.909701, -0.395092, -0.750434, -0.349194, -0.561171, 1641.67, -2.07732, 937.824)
+material_override = SubResource("StandardMaterial3D_a6jrf")
+mesh = SubResource("PlaneMesh_xuqvo")
+skeleton = NodePath("../..")
+
+[node name="guy2" type="MeshInstance3D" parent="ASSETS/Pictures/Node"]
+transform = Transform3D(-0.471666, 0.132026, -0.100498, 0.138684, 0.47995, -0.0203692, 0.0910899, -0.04709, -0.489372, 1642.19, -2.24091, 936.293)
+material_override = SubResource("StandardMaterial3D_qsp4k")
+mesh = SubResource("PlaneMesh_xuqvo")
+skeleton = NodePath("../..")
+
+[node name="photos" type="Area3D" parent="ASSETS/Pictures/Node"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1642.13, -1.10711, 936.201)
+collision_mask = 2
+script = ExtResource("16_jq2sk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ASSETS/Pictures/Node/photos"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0.326538, 0, 1.06421)
+shape = SubResource("BoxShape3D_4k2k6")
 
 [node name="Tracks" type="Node" parent="ASSETS"]
 
@@ -545,6 +649,8 @@ debug_color = Color(0.802253, 0.000356168, 0.76856, 0.419608)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="ASSETS/Radiation/DeathZone"]
 stream = ExtResource("14_82xsv")
+volume_db = 10.0
+autoplay = true
 
 [node name="WarningZone" type="Area3D" parent="ASSETS/Radiation"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1467.46, -3.16554, 920.099)
@@ -596,9 +702,9 @@ collision_mask = 2
 script = ExtResource("18_d13ii")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ASSETS/Complete/EndGameZone"]
-transform = Transform3D(128.939, -4.6566, -94.6203, 94.7106, 2.72538, 128.928, -2.14057, -159.909, 4.95273, -29.0913, -17.9746, 179.864)
+transform = Transform3D(80.587, -2.91038, -59.1377, 59.1942, 1.70336, 80.5801, -1.33785, -99.9431, 3.09546, -38.1656, -33.3175, 171.804)
 shape = SubResource("CapsuleShape3D_1u8w0")
-debug_color = Color(0.0110418, 0.120684, 0.105, 0.42)
+debug_color = Color(0.207991, 0.0228398, 0, 0.42)
 
 [node name="EndGameZone2" type="Area3D" parent="ASSETS/Complete"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 247.536, 66.9315, 289.679)
@@ -606,11 +712,69 @@ collision_mask = 2
 script = ExtResource("18_d13ii")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ASSETS/Complete/EndGameZone2"]
-transform = Transform3D(106.213, -92.3686, -76.0714, 94.7106, 2.72538, 128.928, -73.1349, -130.616, 56.486, -89.2569, -58.9901, 43.2259)
+transform = Transform3D(66.3831, -57.7304, -47.5446, 59.1941, 1.70344, 80.5801, -45.7093, -81.6352, 35.3038, -121.777, -58.9901, 93.5027)
 shape = SubResource("CapsuleShape3D_1u8w0")
+debug_color = Color(0.207991, 0.0228398, 0, 0.42)
+
+[node name="Map" type="Node" parent="ASSETS"]
+
+[node name="Map Retrieval" type="Area3D" parent="ASSETS/Map"]
+transform = Transform3D(0.986013, 0, -0.166665, 0, 1, 0, 0.166665, 0, 0.986013, 1648.56, 0.73857, 930.521)
+collision_mask = 2
+script = ExtResource("22_xuqvo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ASSETS/Map/Map Retrieval"]
+transform = Transform3D(4, 0, -5.96046e-08, 0, 4, 0, 5.96046e-08, 0, 4, 4.61169, -1.79768, 3.20624)
+shape = SubResource("BoxShape3D_82xsv")
 debug_color = Color(0.0110418, 0.120684, 0.105, 0.42)
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ASSETS/Map/Map Retrieval"]
+transform = Transform3D(0.992121, -0.123992, -0.0179762, 0.123542, 0.944296, 0.305029, -0.0208464, -0.304847, 0.952174, 4.06592, -1.96603, 4.42145)
+material_override = SubResource("StandardMaterial3D_seu75")
+material_overlay = SubResource("StandardMaterial3D_htxhm")
+mesh = SubResource("PlaneMesh_jq2sk")
+
+[node name="GoToTree" type="Area3D" parent="ASSETS/Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1667.48, 1.04992, 824.282)
+collision_mask = 2
+script = ExtResource("23_qsp4k")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ASSETS/Map/GoToTree"]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, -23.1339, -9.29237, 2.75421)
+shape = SubResource("BoxShape3D_82xsv")
+debug_color = Color(0.0110418, 0.120684, 0.105, 0.42)
+
+[node name="Passages" type="Node" parent="ASSETS"]
+
+[node name="Lake" type="Area3D" parent="ASSETS/Passages"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 986.682, -3.31059, 933.807)
+collision_mask = 2
+script = ExtResource("27_jq2sk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ASSETS/Passages/Lake"]
+transform = Transform3D(64.542, 0, -47.2687, 0, 80, 0, 47.2687, 0, 64.542, -305.893, 0, 54.7678)
+shape = SubResource("BoxShape3D_4k2k6")
+
+[node name="Car" type="Area3D" parent="ASSETS/Passages"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1057.53, -3.31059, 799.704)
+collision_mask = 2
+script = ExtResource("28_4k2k6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ASSETS/Passages/Car"]
+transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, -6.52966, 0, 5.99811)
+shape = SubResource("BoxShape3D_4k2k6")
+
+[node name="Nearby" type="Area3D" parent="ASSETS/Passages"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 557.153, -85.2111, 799.704)
+collision_mask = 2
+script = ExtResource("29_0rl1p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ASSETS/Passages/Nearby"]
+transform = Transform3D(116.758, 0, -27.7058, 0, 120, 0, 27.7058, 0, 116.758, 4.95636, 117.088, -131.314)
+shape = SubResource("BoxShape3D_4k2k6")
+
 [node name="UI" parent="." instance=ExtResource("1_0xm2m")]
+visible = false
 
 [node name="Environment" parent="." instance=ExtResource("2_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.7933, -34.6795, -5.85846)
@@ -628,7 +792,20 @@ metadata/_edit_lock_ = true
 [node name="GameOver" parent="." instance=ExtResource("19_cegan")]
 visible = false
 
+[node name="uploads_files_1939375_Casual_Male" parent="." instance=ExtResource("30_kq58d")]
+transform = Transform3D(4.96263, -0.10471, 0.601076, 0.610128, 0.851684, -4.88901, 4.57642e-07, 4.92582, 0.858097, 1660.47, -1.59475, 932.281)
+
+[node name="Sign_do_not_entere" parent="." instance=ExtResource("36_facbu")]
+transform = Transform3D(1.37499, -1.76868, 4.47003, 0.520004, 4.67673, 1.69051, -4.77902, 0, 1.47003, 812.39, -0.118227, 952.462)
+
+[node name="Sign_do_not_entere2" parent="." instance=ExtResource("36_facbu")]
+transform = Transform3D(1.57806, 1.45669, -4.51528, 0.520004, 4.67673, 1.69051, 4.71586, -1.00314, 1.32454, 1269.75, -0.118227, 967.321)
+
+[node name="Sign_train" parent="." instance=ExtResource("37_b1qrp")]
+transform = Transform3D(3.20535, 0, 7.32978, 0, 8, 0, -7.32978, 0, 3.20535, 565.323, 20.6829, 676.589)
+
 [connection signal="body_entered" from="ASSETS/RadioArea" to="ASSETS/RadioArea" method="_on_body_entered"]
+[connection signal="body_entered" from="ASSETS/Pictures/Node/photos" to="ASSETS/Pictures/Node/photos" method="_on_body_entered"]
 [connection signal="body_entered" from="ASSETS/Radiation/DeathZone" to="ASSETS/Radiation/DeathZone" method="_on_body_entered"]
 [connection signal="body_entered" from="ASSETS/Radiation/WarningZone" to="ASSETS/Radiation/WarningZone" method="_on_body_entered"]
 [connection signal="body_entered" from="ASSETS/Wolf/DeathZone" to="ASSETS/Wolf/DeathZone" method="_on_body_entered"]
@@ -636,3 +813,8 @@ visible = false
 [connection signal="body_entered" from="ASSETS/Wolf/WarningZone" to="ASSETS/Wolf/WarningZone" method="_on_body_entered"]
 [connection signal="body_entered" from="ASSETS/Complete/EndGameZone" to="ASSETS/Complete/EndGameZone" method="_on_body_entered"]
 [connection signal="body_entered" from="ASSETS/Complete/EndGameZone2" to="ASSETS/Complete/EndGameZone2" method="_on_body_entered"]
+[connection signal="body_entered" from="ASSETS/Map/Map Retrieval" to="ASSETS/Map/Map Retrieval" method="_on_body_entered"]
+[connection signal="body_entered" from="ASSETS/Map/GoToTree" to="ASSETS/Map/GoToTree" method="_on_body_entered"]
+[connection signal="body_entered" from="ASSETS/Passages/Lake" to="ASSETS/Passages/Lake" method="_on_body_entered"]
+[connection signal="body_entered" from="ASSETS/Passages/Car" to="ASSETS/Passages/Car" method="_on_body_entered"]
+[connection signal="body_entered" from="ASSETS/Passages/Nearby" to="ASSETS/Passages/Nearby" method="_on_body_entered"]
