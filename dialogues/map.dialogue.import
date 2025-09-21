@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://buasra80usvtq"
+path="res://.godot/imported/map.dialogue-e26289f2fe7571885b03f87cac6e7dca.tres"
+
+[deps]
+
+source_file="res://dialogues/map.dialogue"
+dest_files=["res://.godot/imported/map.dialogue-e26289f2fe7571885b03f87cac6e7dca.tres"]
+
+[params]
+
+defaults=true

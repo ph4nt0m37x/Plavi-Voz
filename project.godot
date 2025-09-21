@@ -87,7 +87,7 @@ ui_down={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogues/intro.dialogue", "res://tree.dialogue", "res://dialogues/radio.dialogue", "res://dialogues/flashlight.dialogue", "res://dialogues/radiation.dialogue", "res://dialogues/wolves.dialogue", "res://dialogues/endgame.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogues/intro.dialogue", "res://tree.dialogue", "res://dialogues/radio.dialogue", "res://dialogues/flashlight.dialogue", "res://dialogues/radiation.dialogue", "res://dialogues/wolves.dialogue", "res://dialogues/endgame.dialogue", "res://dialogues/map.dialogue")
 
 [rendering]
 
