@@ -1,4 +1,4 @@
-#  Plavi Voz
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/50f84f71-e7b3-429c-9e88-f5a1da2d1914" />#  Plavi Voz
 
 Plavi Voz is a mini 3D story-driven game built in Godot with survival elements. You play as Viktor, a survivor in a sudden winter apocalypse in 1970s Yugoslavia.
 The game begins with Viktor searching for shelter to survive the night, but his ultimate goal is to reach Belgrade and find his wife, who was visiting her mother when the disaster struck.
@@ -51,11 +51,25 @@ We also used Godot’s weather system for snow and atmospheric effects, and adde
 
 ## Preview
 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/edc7a7f1-4d29-426f-a0b2-6dd9267d3188" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/24ea4034-4c51-464a-8bdc-ca2a0e2358b2" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/20149da5-0c42-4164-bf7a-b8221ff6c762" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/3a455d1f-2472-41ef-b22b-f35765a8dd16" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/1deab57a-12e0-4568-b02d-d3d92cb1ca81" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/3c00cb71-6890-411b-a2ca-be1e2e2ffbc5" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/8c60a67d-cd71-40cf-8320-c37f1219d924" />
 
 
 ## Inspiration
 
 Our game was heavily inspired by The Long Dark, as a winter survival game. We wanted to capture the feel of Yugoslavia through the lens of our parents, who lived during that period, and aimed to evoke not only the aesthetics of that era, but also the tension and intrigue surrounding the disaster itself, with a sense of mystery that hints at the hidden stories and unanswered questions of the politics of that era.
+We also drew inspiration from authentic family photos from Yugoslavia from one of our families.
 Marko modeled an authentic Yugoslavian radio, and we found a vintage manual online to accurately replicate how it functions.
 While we really wanted to create a fully realized world, time constraints meant we could not expand the game as much as we had hoped.
 Nevertheless, this project represents a glimpse of the vision we would love to continue exploring in our free time.
@@ -83,6 +97,10 @@ Nevertheless, this project represents a glimpse of the vision we would love to c
   - https://www.cgtrader.com/free-3d-models/animals/mammal/wolf-king-8a9a9e58-ea52-4928-b435-bd21bce75e9d
 - Road Signs Assets
   - https://www.cgtrader.com/free-3d-models/animals/mammal/wolf-king-8a9a9e58-ea52-4928-b435-bd21bce75e9d
+- Bag Asset
+  - https://www.cgtrader.com/free-3d-models/various/various-models/bag-asset-f4888c7f-9ace-46e3-b30c-59efa8ccf696
+- Radio Tower Asset
+  - https://www.cgtrader.com/free-3d-models/exterior/historic-exterior/bandeirantes-tower
 
 ### Textures
 
