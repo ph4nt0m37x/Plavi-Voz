@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://ba0l4dhfmjxj0"
+path="res://.godot/imported/nearby.dialogue-e800a5c93988190b89911a601082368f.tres"
+
+[deps]
+
+source_file="res://dialogues/nearby.dialogue"
+dest_files=["res://.godot/imported/nearby.dialogue-e800a5c93988190b89911a601082368f.tres"]
+
+[params]
+
+defaults=true

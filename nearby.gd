@@ -1,6 +1,6 @@
 extends Area3D
 
-@onready var dialogue = preload("res://dialogues/gotothetree.dialogue")
+@onready var dialogue = preload("res://dialogues/nearby.dialogue")
 @onready var player = $"../../../Player"
 
 var done := false
@@ -20,5 +20,3 @@ func _start_dialogue(dialogue: DialogueResource, start_node: String):
 func _on_dialogue_ended():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	player.can_move = true
-	
-	call_deferred("queue_free")

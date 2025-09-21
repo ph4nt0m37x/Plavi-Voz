@@ -73,7 +73,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.93869, 0)
 stream = ExtResource("13_v4f8b")
 
 [node name="CameraManager" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.72567, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.18598, 0)
 script = ExtResource("2_loos7")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="CameraManager"]
@@ -100,7 +100,7 @@ far = 16384.0
 
 [node name="MapArm3D" type="SpringArm3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.912244, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6957, 1.74859)
 spring_length = -0.7
 
 [node name="MapMeshInstance3D" type="MeshInstance3D" parent="MapArm3D"]
@@ -122,4 +122,5 @@ shape = SubResource("SeparationRayShape3D_twc2s")
 
 [node name="Body" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
 mesh = SubResource("CapsuleMesh_lsqiy")
