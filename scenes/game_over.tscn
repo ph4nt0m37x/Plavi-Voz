@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://cglgt56aqshqp"]
+
+[ext_resource type="Script" uid="uid://csrkam6p88iq4" path="res://game_over.gd" id="1_xeevv"]
+
+[sub_resource type="Theme" id="Theme_82xsv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_getpj"]
+
+[sub_resource type="Theme" id="Theme_ryguw"]
+
+[node name="GameOver" type="CanvasLayer"]
+script = ExtResource("1_xeevv")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+show_behind_parent = true
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 40.0
+offset_bottom = 40.0
+theme = SubResource("Theme_82xsv")
+theme_override_styles/panel = SubResource("StyleBoxFlat_getpj")
+
+[node name="game_over" type="Label" parent="."]
+top_level = true
+custom_minimum_size = Vector2(0, 50)
+offset_left = 3.0
+offset_top = 412.0
+offset_right = 1923.0
+offset_bottom = 689.0
+theme = SubResource("Theme_ryguw")
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(0.522999, 0.0163396, 0.00910056, 1)
+theme_override_font_sizes/font_size = 100
+text = "You have died.
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quit" type="Button" parent="."]
+top_level = true
+offset_left = 838.0
+offset_top = 830.0
+offset_right = 1106.0
+offset_bottom = 907.0
+theme_override_colors/font_hover_pressed_color = Color(0.31149, 0.00573703, 0.00318227, 1)
+theme_override_colors/font_color = Color(0.330743, 0.00627885, 0.0034923, 1)
+theme_override_colors/font_pressed_color = Color(0.521569, 0.0156863, 0.00784314, 1)
+theme_override_font_sizes/font_size = 50
+text = "Quit Game"
+
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
