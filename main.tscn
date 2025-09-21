@@ -168,6 +168,7 @@ script = SubResource("GDScript_7mycd")
 
 [node name="WORKLIGHT" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 791.93, 0)
+visible = false
 
 [node name="ASSETS" type="Node" parent="."]
 
@@ -397,7 +398,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.106632, 0.550842, 0)
 shape = SubResource("CylinderShape3D_dg77c")
 
 [node name="leaf_tree12" parent="ASSETS/Trees" instance=ExtResource("9_kek77")]
-transform = Transform3D(18.2242, 0, -8.23886, 0, 20, 0, 8.23886, 0, 18.2242, 1641.26, -10.6884, 958.537)
+transform = Transform3D(18.2242, 0, -8.23886, 0, 20, 0, 8.23886, 0, 18.2242, 1639.23, -11.5522, 957.591)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ASSETS/Trees/leaf_tree12"]
 
@@ -553,6 +554,12 @@ shape = SubResource("BoxShape3D_272bh")
 
 [node name="Pictures" type="Node" parent="ASSETS"]
 
+[node name="OmniLight3D" type="OmniLight3D" parent="ASSETS/Pictures"]
+transform = Transform3D(-0.673682, -0.470758, 0.569684, -0.164941, 0.847196, 0.505028, -0.72038, 0.246264, -0.648388, 1644.69, -1.14278, 938.503)
+light_color = Color(1, 1, 0.780392, 1)
+omni_range = 10.0
+omni_attenuation = 1.5
+
 [node name="wife_picture" type="MeshInstance3D" parent="ASSETS/Pictures"]
 transform = Transform3D(0.313331, 0.0121812, 0.389455, -0.00763576, 0.499852, -0.00949085, -0.389571, 0, 0.313424, 1743.14, 0.239806, 647.42)
 material_override = SubResource("StandardMaterial3D_2cqfq")
@@ -565,12 +572,12 @@ material_overlay = SubResource("StandardMaterial3D_kq58d")
 mesh = SubResource("PlaneMesh_xuqvo")
 
 [node name="uploads_files_2880858_Bag" parent="ASSETS/Pictures" instance=ExtResource("13_htxhm")]
-transform = Transform3D(-0.336841, -0.235379, 0.284842, -0.0824708, 0.423598, 0.252514, -0.36019, 0.123132, -0.324194, 1643.58, -1.64844, 938.516)
+transform = Transform3D(-0.336841, -0.235379, 0.284842, -0.0824708, 0.423598, 0.252514, -0.36019, 0.123132, -0.324194, 1643.58, -1.64844, 937.376)
 
 [node name="Node" type="Node" parent="ASSETS/Pictures"]
 
 [node name="guy" type="MeshInstance3D" parent="ASSETS/Pictures/Node"]
-transform = Transform3D(-0.648462, 0.224741, 0.727316, -0.127856, 0.909701, -0.395092, -0.750434, -0.349194, -0.561171, 1641.67, -2.07732, 937.825)
+transform = Transform3D(-0.648462, 0.224741, 0.727316, -0.127856, 0.909701, -0.395092, -0.750434, -0.349194, -0.561171, 1641.67, -2.07732, 937.824)
 material_override = SubResource("StandardMaterial3D_a6jrf")
 mesh = SubResource("PlaneMesh_xuqvo")
 skeleton = NodePath("../..")
@@ -767,6 +774,7 @@ transform = Transform3D(116.758, 0, -27.7058, 0, 120, 0, 27.7058, 0, 116.758, 4.
 shape = SubResource("BoxShape3D_4k2k6")
 
 [node name="UI" parent="." instance=ExtResource("1_0xm2m")]
+visible = false
 
 [node name="Environment" parent="." instance=ExtResource("2_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.7933, -34.6795, -5.85846)

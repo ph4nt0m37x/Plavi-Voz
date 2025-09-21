@@ -100,7 +100,7 @@ far = 16384.0
 
 [node name="MapArm3D" type="SpringArm3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6957, 1.74859)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.98555, -0.0710223)
 spring_length = -0.7
 
 [node name="MapMeshInstance3D" type="MeshInstance3D" parent="MapArm3D"]

@@ -41,17 +41,17 @@ var has_map : bool = false
 
 var map_toggle: bool = false
 
-@export var first_person: bool = false : 
+@export var first_person: bool = false: 
 	set(p_value):
 		first_person = p_value
 		if first_person:
+			$Body.visible = true
+			create_tween().tween_property($CameraManager/Arm, "spring_length", 6.0, .33)
+		else:
 			var tween: Tween = create_tween()
 			tween.tween_property($CameraManager/Arm, "spring_length", 0.0, .33)
 			tween.tween_callback($Body.set_visible.bind(false))
-		else:
-			$Body.visible = true
-			create_tween().tween_property($CameraManager/Arm, "spring_length", 6.0, .33)
-
+		
 @export var gravity_enabled: bool = true :
 	set(p_value):
 		gravity_enabled = p_value
@@ -274,13 +274,13 @@ func _input(p_event: InputEvent) -> void:
 		if p_event.pressed:
 			if p_event.keycode == KEY_V:
 				first_person = ! first_person
-			elif p_event.keycode == KEY_G:
-				gravity_enabled = ! gravity_enabled
-			elif p_event.keycode == KEY_C:
-				collision_enabled = ! collision_enabled
-			elif p_event.keycode == KEY_L:  # Toggle light shake with L key
-				light_shake_enabled = ! light_shake_enabled
-			elif p_event.keycode == KEY_F:  # Toggle flashlight with F key
+			#elif p_event.keycode == KEY_G:
+				#gravity_enabled = ! gravity_enabled
+			#elif p_event.keycode == KEY_C:
+				#collision_enabled = ! collision_enabled
+			#elif p_event.keycode == KEY_L:  # Toggle light shake with L key
+				#light_shake_enabled = ! light_shake_enabled
+			if p_event.keycode == KEY_F:  # Toggle flashlight with F key
 				toggle_flashlight()
 			elif p_event.keycode == KEY_R:  # Start recharging with R key
 				is_recharging = true
