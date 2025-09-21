@@ -9,6 +9,9 @@ var headbob_time := 0.0
 var foot_sound := true
 var foot_land := true
 
+
+var can_move: bool = true # to make the character not move during dialogue
+
 @export var first_person: bool = false : 
 	set(p_value):
 		first_person = p_value
@@ -34,6 +37,8 @@ var foot_land := true
 
 
 func _physics_process(p_delta) -> void:
+	if not can_move:
+		return
 	var direction: Vector3 = get_camera_relative_input()
 	var h_veloc: Vector2 = Vector2(direction.x, direction.z).normalized() * MOVE_SPEED
 	if Input.is_key_pressed(KEY_SHIFT):
