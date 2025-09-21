@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://wugg80k0extw"]
+[gd_scene load_steps=48 format=3 uid="uid://wugg80k0extw"]
 
 [ext_resource type="PackedScene" uid="uid://d2jihfohphuue" path="res://demo/components/UI.tscn" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://domhm87hbhbg1" path="res://player/Player.tscn" id="1_ig7tw"]
@@ -13,12 +13,15 @@
 [ext_resource type="PackedScene" uid="uid://coxaw8mesmirf" path="res://models/winter_tree14.glb" id="10_4c57u"]
 [ext_resource type="PackedScene" uid="uid://bsit7ja17bna8" path="res://models/train.glb" id="11_efxa6"]
 [ext_resource type="Texture2D" uid="uid://ckwhvrttubn8r" path="res://models/textures/wife.jpg" id="11_vivmo"]
+[ext_resource type="Texture2D" uid="uid://crujbbev54pb5" path="res://models/textures/guy.jpg" id="12_0odxb"]
 [ext_resource type="PackedScene" uid="uid://c0pd5cochrdc2" path="res://models/track.glb" id="12_dg77c"]
 [ext_resource type="PackedScene" uid="uid://sh6q6wiaq5wn" path="res://models/Sign_current.glb" id="12_yaehf"]
 [ext_resource type="Script" uid="uid://btdnq71t3qsoc" path="res://death_zone.gd" id="13_074og"]
+[ext_resource type="Texture2D" uid="uid://sikdcb8url2x" path="res://models/textures/girlwdoll.jpg" id="13_lswn8"]
 [ext_resource type="PackedScene" uid="uid://co1d3nhohi77f" path="res://wolf_king_0726042125_refine.fbx" id="13_ycdy4"]
 [ext_resource type="Script" uid="uid://cw5v8gbrhm268" path="res://warning_zone.gd" id="14_074og"]
 [ext_resource type="AudioStream" uid="uid://h1j3piaxgxc5" path="res://sounds/ambiance/Radiation sound - extreme.mp3" id="14_82xsv"]
+[ext_resource type="Texture2D" uid="uid://dt2eyojiq7hii" path="res://models/textures/soldiers.jpg" id="14_lswn8"]
 [ext_resource type="PackedScene" uid="uid://b1cwydg4hkidh" path="res://models/car.glb" id="14_vivmo"]
 [ext_resource type="Script" uid="uid://bqwmiyav0rqyv" path="res://wolf_zone.gd" id="17_d13ii"]
 [ext_resource type="Script" uid="uid://cqpakjvqpcawc" path="res://end_game.gd" id="18_d13ii"]
@@ -70,6 +73,19 @@ size = Vector3(0.635742, 0.266663, 0.822021)
 albedo_texture = ExtResource("11_vivmo")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_yaehf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a6jrf"]
+albedo_texture = ExtResource("12_0odxb")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xuqvo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qsp4k"]
+albedo_texture = ExtResource("13_lswn8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xuqvo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kq58d"]
+albedo_texture = ExtResource("14_lswn8")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cegan"]
 size = Vector3(2.96631, 1, 1)
@@ -492,6 +508,22 @@ shape = SubResource("BoxShape3D_272bh")
 transform = Transform3D(0.313331, 0.0121812, 0.389455, -0.00763576, 0.499852, -0.00949085, -0.389571, 0, 0.313424, 1743.14, 0.239806, 647.42)
 material_override = SubResource("StandardMaterial3D_2cqfq")
 mesh = SubResource("PlaneMesh_yaehf")
+
+[node name="guy" type="MeshInstance3D" parent="ASSETS/Pictures"]
+transform = Transform3D(-0.59887, 0, 0.800846, -0.27965, 0.937051, -0.209122, -0.750434, -0.349194, -0.561171, 1635.58, -0.415203, 948.644)
+material_override = SubResource("StandardMaterial3D_a6jrf")
+mesh = SubResource("PlaneMesh_xuqvo")
+
+[node name="guy2" type="MeshInstance3D" parent="ASSETS/Pictures"]
+transform = Transform3D(-0.471666, 0.132026, -0.100498, 0.138684, 0.47995, -0.0203692, 0.0910899, -0.04709, -0.489372, 1636.87, -0.335382, 948.78)
+material_override = SubResource("StandardMaterial3D_qsp4k")
+mesh = SubResource("PlaneMesh_xuqvo")
+
+[node name="guy3" type="MeshInstance3D" parent="ASSETS/Pictures"]
+transform = Transform3D(0.454099, -0.124062, 0.168531, 0.138684, 0.47995, -0.0203691, -0.156719, 0.0652445, 0.4703, 1498.17, -3.90909, 581.084)
+material_override = SubResource("StandardMaterial3D_xuqvo")
+material_overlay = SubResource("StandardMaterial3D_kq58d")
+mesh = SubResource("PlaneMesh_xuqvo")
 
 [node name="Tracks" type="Node" parent="ASSETS"]
 
