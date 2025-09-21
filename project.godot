@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Plavi Voz"
-run/main_scene="uid://eftwowae5o82"
+run/main_scene="uid://wugg80k0extw"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -87,7 +87,7 @@ ui_down={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogues/intro.dialogue", "res://dialogues/tree.dialogue", "res://tree.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogues/intro.dialogue", "res://tree.dialogue", "res://dialogues/radio.dialogue")
 
 [rendering]
 

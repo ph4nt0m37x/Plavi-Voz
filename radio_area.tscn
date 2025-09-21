@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://b8jkmyrcm2j48"]
+
+[ext_resource type="Script" uid="uid://bjbiuc21f3oqg" path="res://trigger.gd" id="1_r2sqy"]
+[ext_resource type="PackedScene" uid="uid://b0wd42uq4xkpl" path="res://models/radio.glb" id="2_6s08v"]
+[ext_resource type="Script" uid="uid://bp2lore3k2qrn" path="res://models/radio.gd" id="3_hm7ph"]
+[ext_resource type="AudioStream" uid="uid://dykcsh40pwe5n" path="res://sounds/radio/tuning7150.mp3" id="4_7ejpx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ycdy4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_272bh"]
+size = Vector3(0.635742, 0.266663, 0.822021)
+
+[node name="RadioArea" type="Area3D"]
+script = ExtResource("1_r2sqy")
+
+[node name="Trigger" type="CollisionShape3D" parent="."]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 1.20349, 0.611289, -0.76593)
+shape = SubResource("BoxShape3D_ycdy4")
+
+[node name="radio_tun" parent="." instance=ExtResource("2_6s08v")]
+transform = Transform3D(-0.369187, -1.86265e-07, 0.337196, 0.123731, 0.465122, 0.135469, -0.313675, 0.18347, -0.343434, 1.22021, 1.35444, 0.481079)
+script = ExtResource("3_hm7ph")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="radio_tun"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.63131, 0)
+stream = ExtResource("4_7ejpx")
+autoplay = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="radio_tun"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="radio_tun/StaticBody3D"]
+transform = Transform3D(7.13, 0, 0, 0, 7.13, 0, 0, 0, 7.13, -0.0104446, -0.0324211, 0.241089)
+shape = SubResource("BoxShape3D_272bh")

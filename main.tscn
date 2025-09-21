@@ -1,9 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://wugg80k0extw"]
+[gd_scene load_steps=25 format=3 uid="uid://wugg80k0extw"]
 
 [ext_resource type="PackedScene" uid="uid://d2jihfohphuue" path="res://demo/components/UI.tscn" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://domhm87hbhbg1" path="res://player/Player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://bb2lp50sjndus" path="res://demo/components/Environment.tscn" id="2_h2yge"]
+[ext_resource type="Script" uid="uid://bp2lore3k2qrn" path="res://models/radio.gd" id="2_ycdy4"]
 [ext_resource type="Terrain3DAssets" uid="uid://dal3jhw6241qg" path="res://demo/data/assets.tres" id="5_lquwl"]
+[ext_resource type="Script" uid="uid://bjbiuc21f3oqg" path="res://trigger.gd" id="7_w48qg"]
 [ext_resource type="PackedScene" uid="uid://b0wd42uq4xkpl" path="res://models/radio.glb" id="8_5vw27"]
 [ext_resource type="AudioStream" uid="uid://dykcsh40pwe5n" path="res://sounds/radio/tuning7150.mp3" id="8_kek77"]
 [ext_resource type="PackedScene" uid="uid://noto36v2iuxd" path="res://models/winter_tree8.glb" id="9_kek77"]
@@ -37,9 +39,6 @@ func _on_dialogue_ended():
 	$Player.can_move = true
 "
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_272bh"]
-size = Vector3(0.635742, 0.266663, 0.822021)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_dg77c"]
 size = Vector3(0.633606, 1, 4.26245)
 
@@ -48,6 +47,11 @@ size = Vector3(0.633606, 1, 4.26245)
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_dg77c"]
 height = 0.898315
 radius = 0.355469
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ycdy4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_272bh"]
+size = Vector3(0.635742, 0.266663, 0.822021)
 
 [sub_resource type="Gradient" id="Gradient_272bh"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -104,20 +108,6 @@ script = SubResource("GDScript_7mycd")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 791.93, 0)
 
 [node name="ASSETS" type="Node" parent="."]
-
-[node name="radio_tun" parent="ASSETS" instance=ExtResource("8_5vw27")]
-transform = Transform3D(-0.369187, -1.86265e-07, 0.337196, 0.123731, 0.465122, 0.135469, -0.313675, 0.18347, -0.343434, 1752.8, 1.35444, 655.079)
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="ASSETS/radio_tun"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.63131, 0)
-stream = ExtResource("8_kek77")
-autoplay = true
-
-[node name="StaticBody3D" type="StaticBody3D" parent="ASSETS/radio_tun"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ASSETS/radio_tun/StaticBody3D"]
-transform = Transform3D(7.13, 0, 0, 0, 7.13, 0, 0, 0, 7.13, -0.0104446, -0.0324211, 0.241089)
-shape = SubResource("BoxShape3D_272bh")
 
 [node name="train" parent="ASSETS" instance=ExtResource("11_efxa6")]
 transform = Transform3D(-34.1095, 0, 36.5588, 0, 50, 0, -36.5588, 0, -34.1095, -143.302, 44.5322, 732.844)
@@ -431,6 +421,30 @@ transform = Transform3D(2.52951, -1.23431, 4.13256, 0.821532, 4.84104, 0.943069,
 [node name="car" parent="ASSETS/Cars" instance=ExtResource("14_vivmo")]
 transform = Transform3D(4.81903, -0.584399, -1.1981, 0.821532, 4.84104, 0.943068, 1.04978, -1.10579, 4.76185, 1031.54, -15.3651, 788.901)
 
+[node name="RadioArea" type="Area3D" parent="ASSETS"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1751.58, 0, 654.598)
+collision_layer = 2
+script = ExtResource("7_w48qg")
+
+[node name="Trigger" type="CollisionShape3D" parent="ASSETS/RadioArea"]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 1.20349, 0.611289, -0.76593)
+shape = SubResource("BoxShape3D_ycdy4")
+
+[node name="radio_tun" parent="ASSETS/RadioArea" instance=ExtResource("8_5vw27")]
+transform = Transform3D(-0.369187, -1.86265e-07, 0.337196, 0.123731, 0.465122, 0.135469, -0.313675, 0.18347, -0.343434, 1.22021, 1.35444, 0.481079)
+script = ExtResource("2_ycdy4")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="ASSETS/RadioArea/radio_tun"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.63131, 0)
+stream = ExtResource("8_kek77")
+autoplay = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ASSETS/RadioArea/radio_tun"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ASSETS/RadioArea/radio_tun/StaticBody3D"]
+transform = Transform3D(7.13, 0, 0, 0, 7.13, 0, 0, 0, 7.13, -0.0104446, -0.0324211, 0.241089)
+shape = SubResource("BoxShape3D_272bh")
+
 [node name="UI" parent="." instance=ExtResource("1_0xm2m")]
 
 [node name="Environment" parent="." instance=ExtResource("2_h2yge")]
@@ -447,3 +461,5 @@ show_grid = true
 show_region_grid = true
 top_level = true
 metadata/_edit_lock_ = true
+
+[connection signal="body_entered" from="ASSETS/RadioArea" to="ASSETS/RadioArea" method="_on_body_entered"]
