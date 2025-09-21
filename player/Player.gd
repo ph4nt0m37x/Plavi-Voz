@@ -37,6 +37,8 @@ var is_charging_audio_playing: bool = false
 
 var can_move: bool = true # to make the character not move during dialogue
 
+var has_map : bool = false
+
 var map_toggle: bool = false
 
 @export var first_person: bool = false : 
@@ -226,18 +228,19 @@ func toggle_flashlight():
 		spotlight_node.visible = flashlight_enabled
 		
 func map_toggle_fun():
-	map_toggle = !map_toggle
-	
-	if map_toggle:
-		%MapMeshInstance3D.visible = true
-		%MapInAudio3D.play()
-		var tween: Tween = create_tween()
-		tween.tween_property(%MapArm3D, "spring_length", -0.2, .33)
-	else:
-		%MapOutAudio3D.play()
-		var tween: Tween = create_tween()
-		tween.tween_property(%MapArm3D, "spring_length", 4.0, .33)
-		#%MapMeshInstance3D.visible = false
+	if has_map:
+		map_toggle = !map_toggle
+		
+		if map_toggle:
+			%MapMeshInstance3D.visible = true
+			%MapInAudio3D.play()
+			var tween: Tween = create_tween()
+			tween.tween_property(%MapArm3D, "spring_length", -0.2, .33)
+		else:
+			%MapOutAudio3D.play()
+			var tween: Tween = create_tween()
+			tween.tween_property(%MapArm3D, "spring_length", 4.0, .33)
+			#%MapMeshInstance3D.visible = false
 		
 # Returns the input vector relative to the camera. Forward is always the direction the camera is facing
 func get_camera_relative_input() -> Vector3:

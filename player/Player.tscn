@@ -106,6 +106,7 @@ spring_length = -0.7
 [node name="MapMeshInstance3D" type="MeshInstance3D" parent="MapArm3D"]
 unique_name_in_owner = true
 transform = Transform3D(0.8, 0, 0, 0, 0.69282, -0.4, 0, 0.4, 0.69282, 0, 0.991232, -1.54988)
+visible = false
 material_override = SubResource("StandardMaterial3D_t8epa")
 mesh = SubResource("PlaneMesh_b32pr")
 skeleton = NodePath("")

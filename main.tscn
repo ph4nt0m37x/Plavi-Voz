@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://wugg80k0extw"]
+[gd_scene load_steps=54 format=3 uid="uid://wugg80k0extw"]
 
 [ext_resource type="PackedScene" uid="uid://d2jihfohphuue" path="res://demo/components/UI.tscn" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://domhm87hbhbg1" path="res://player/Player.tscn" id="1_ig7tw"]
@@ -26,6 +26,9 @@
 [ext_resource type="Script" uid="uid://bqwmiyav0rqyv" path="res://wolf_zone.gd" id="17_d13ii"]
 [ext_resource type="Script" uid="uid://cqpakjvqpcawc" path="res://end_game.gd" id="18_d13ii"]
 [ext_resource type="PackedScene" uid="uid://cglgt56aqshqp" path="res://scenes/game_over.tscn" id="19_cegan"]
+[ext_resource type="Script" uid="uid://h1af4w0q4jik" path="res://map_retrieval.gd" id="22_xuqvo"]
+[ext_resource type="Texture2D" uid="uid://fjsecyn74fov" path="res://models/textures/map.png" id="23_kq58d"]
+[ext_resource type="Script" uid="uid://brm704hkd7ag7" path="res://go_to_tree.gd" id="23_qsp4k"]
 
 [sub_resource type="GDScript" id="GDScript_7mycd"]
 script/source = "@tool
@@ -95,6 +98,13 @@ size = Vector3(0.756836, 0.887573, 1)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1u8w0"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_seu75"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_htxhm"]
+albedo_texture = ExtResource("23_kq58d")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jq2sk"]
+
 [sub_resource type="Gradient" id="Gradient_272bh"]
 offsets = PackedFloat32Array(0.2, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -158,7 +168,7 @@ transform = Transform3D(-34.1095, 0, 36.5588, 0, 50, 0, -36.5588, 0, -34.1095, -
 transform = Transform3D(-0.999987, 0, 0.00511397, 0, 1, 0, -0.00511397, 0, -0.999987, -0.247717, -0.146559, 1.59923)
 light_color = Color(1, 1, 0.780392, 1)
 light_energy = 10.0
-spot_range = 1000.0
+spot_range = 500.0
 spot_attenuation = 0.0
 spot_angle = 10.0
 
@@ -166,7 +176,7 @@ spot_angle = 10.0
 transform = Transform3D(-0.999987, 0, 0.00511397, 0, 1, 0, -0.00511397, 0, -0.999987, 0.271818, -0.146559, 1.60945)
 light_color = Color(1, 1, 0.780392, 1)
 light_energy = 10.0
-spot_range = 1000.0
+spot_range = 500.0
 spot_attenuation = 0.0
 spot_angle = 10.0
 
@@ -376,6 +386,15 @@ transform = Transform3D(27.3363, 0, -12.3583, 0, 30, 0, 12.3583, 0, 27.3363, 173
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.106632, 0.550842, 0)
 shape = SubResource("CylinderShape3D_dg77c")
 
+[node name="leaf_tree12" parent="ASSETS/Trees" instance=ExtResource("9_kek77")]
+transform = Transform3D(18.2242, 0, -8.23886, 0, 20, 0, 8.23886, 0, 18.2242, 1641.26, -10.6884, 958.537)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ASSETS/Trees/leaf_tree12"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ASSETS/Trees/leaf_tree12/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.106632, 0.550842, 0)
+shape = SubResource("CylinderShape3D_dg77c")
+
 [node name="leaf_tree3" parent="ASSETS/Trees" instance=ExtResource("9_kek77")]
 transform = Transform3D(27.3363, 0, -12.3583, 0, 30, 0, 12.3583, 0, 27.3363, 814.136, -2.88783, 1120.68)
 
@@ -530,12 +549,12 @@ material_override = SubResource("StandardMaterial3D_2cqfq")
 mesh = SubResource("PlaneMesh_yaehf")
 
 [node name="guy" type="MeshInstance3D" parent="ASSETS/Pictures"]
-transform = Transform3D(-0.59887, 0, 0.800846, -0.27965, 0.937051, -0.209122, -0.750434, -0.349194, -0.561171, 1635.58, -0.415203, 948.644)
+transform = Transform3D(-0.59887, 0, 0.800846, -0.27965, 0.937051, -0.209122, -0.750434, -0.349194, -0.561171, 1643.75, -1.15072, 935.992)
 material_override = SubResource("StandardMaterial3D_a6jrf")
 mesh = SubResource("PlaneMesh_xuqvo")
 
 [node name="guy2" type="MeshInstance3D" parent="ASSETS/Pictures"]
-transform = Transform3D(-0.471666, 0.132026, -0.100498, 0.138684, 0.47995, -0.0203692, 0.0910899, -0.04709, -0.489372, 1636.87, -0.335382, 948.78)
+transform = Transform3D(-0.471666, 0.132026, -0.100498, 0.138684, 0.47995, -0.0203692, 0.0910899, -0.04709, -0.489372, 1639.49, -2.49623, 936.436)
 material_override = SubResource("StandardMaterial3D_qsp4k")
 mesh = SubResource("PlaneMesh_xuqvo")
 
@@ -664,6 +683,42 @@ transform = Transform3D(106.213, -92.3686, -76.0714, 94.7106, 2.72538, 128.928, 
 shape = SubResource("CapsuleShape3D_1u8w0")
 debug_color = Color(0.0110418, 0.120684, 0.105, 0.42)
 
+[node name="Map" type="Node" parent="ASSETS"]
+
+[node name="Map Retrieval" type="Area3D" parent="ASSETS/Map"]
+transform = Transform3D(0.986013, 0, -0.166665, 0, 1, 0, 0.166665, 0, 0.986013, 1648.56, 0.73857, 930.521)
+collision_mask = 2
+script = ExtResource("22_xuqvo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ASSETS/Map/Map Retrieval"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 4.61169, -1.92767, 3.20618)
+shape = SubResource("BoxShape3D_82xsv")
+debug_color = Color(0.0110418, 0.120684, 0.105, 0.42)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ASSETS/Map/Map Retrieval"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.82849, -1.15718, 3.29956)
+material_override = SubResource("StandardMaterial3D_seu75")
+material_overlay = SubResource("StandardMaterial3D_htxhm")
+mesh = SubResource("PlaneMesh_jq2sk")
+
+[node name="GoToTree" type="Area3D" parent="ASSETS/Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1667.48, 1.04992, 824.282)
+collision_mask = 2
+script = ExtResource("23_qsp4k")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ASSETS/Map/GoToTree"]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, -23.1339, -9.29237, 2.75421)
+shape = SubResource("BoxShape3D_82xsv")
+debug_color = Color(0.0110418, 0.120684, 0.105, 0.42)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="ASSETS/Map"]
+transform = Transform3D(0.515681, 0, -0.856781, 0, 1, 0, 0.856781, 0, 0.515681, 1581.18, -8.22653, 956.013)
+light_color = Color(1, 1, 0.780392, 1)
+light_energy = 10.0
+spot_range = 100.0
+spot_attenuation = 0.0
+spot_angle = 30.0
+
 [node name="UI" parent="." instance=ExtResource("1_0xm2m")]
 
 [node name="Environment" parent="." instance=ExtResource("2_h2yge")]
@@ -690,3 +745,5 @@ visible = false
 [connection signal="body_entered" from="ASSETS/Wolf/WarningZone" to="ASSETS/Wolf/WarningZone" method="_on_body_entered"]
 [connection signal="body_entered" from="ASSETS/Complete/EndGameZone" to="ASSETS/Complete/EndGameZone" method="_on_body_entered"]
 [connection signal="body_entered" from="ASSETS/Complete/EndGameZone2" to="ASSETS/Complete/EndGameZone2" method="_on_body_entered"]
+[connection signal="body_entered" from="ASSETS/Map/Map Retrieval" to="ASSETS/Map/Map Retrieval" method="_on_body_entered"]
+[connection signal="body_entered" from="ASSETS/Map/GoToTree" to="ASSETS/Map/GoToTree" method="_on_body_entered"]
