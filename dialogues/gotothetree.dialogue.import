@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://da10eh8lsq3yd"
+path="res://.godot/imported/gotothetree.dialogue-4e0db8d24b92df7ef665af8b64270b65.tres"
+
+[deps]
+
+source_file="res://dialogues/gotothetree.dialogue"
+dest_files=["res://.godot/imported/gotothetree.dialogue-4e0db8d24b92df7ef665af8b64270b65.tres"]
+
+[params]
+
+defaults=true
