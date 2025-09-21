@@ -3,9 +3,7 @@ Viktor: What’s this? A radio?
 Viktor: It looks broken… but it might still work.
 Viktor: Civil defense or military units could be giving instructions to survivors.
 Viktor: Even other people could be transmitting across the mountains, I could find others.
-
 =>< check
-
 Tito: Your government has not abandoned you. The blue train is on its way to evacuate you, and take you to shelters in Belgrade.
 Tito: It will follow the main railway line and stop only at stations or areas where boarding is possible.
 Tito: Signal your presence if you can. Move carefully, and remain vigilant. Trust that help is coming.
@@ -26,7 +24,7 @@ Viktor: It’s dark. If I want to get there, I have to move now and be careful.
 Viktor: First, I need to figure out how to get this working…
 - Check the antenna. => wires
 - Bang it on the side to see if it works.
-	You bang it on the side, and nothing happens... Try not to break it, perhaps? => check
+	You bang the radio, but nothing happens... Try not to break it, perhaps? => check
 - Try to power it on immediately.
 	The radio does not start. => check
 => END
