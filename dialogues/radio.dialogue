@@ -38,27 +38,32 @@ Viktor: When food ran out, when the heat died… neighbors stopped being neighbo
 
 ~ check
 Viktor: First, I need to figure out how to get this working…
+
 - Check the antenna. => wires
+
 - Bang it on the side to see if it works.
-	Nothing happens. => check
+	Nothing happens. 
+	=> check
+	
 - Try to power it on immediately.
-	The radio does not start. => check
+	The radio does not start. 
+	=> check
 => END
 
 ~ wires
 The antenna still seems sturdy. Exposed wiring crackles in the cold air.
+
 - Twist the wires together barehanded. 
 	Viktor: Ouch! That hurt. => wires
-- Wrap the wires with cloth scraps. (risk of frostbite) => repaired
-- Leave wires exposed. =>  broken
-
 	
+- Wrap the wires with cloth scraps. (risk of frostbite) => repaired
+
+- Leave wires exposed. =>  broken
 => END
 
 ~ broken
 Viktor: It doesn't seem to be working... I should try something else. => check
 => END
-
 
 ~ repaired
 Viktor: Managed to insulate the wiring, and… The radio works!
@@ -69,10 +74,13 @@ Viktor: Managed to insulate the wiring, and… The radio works!
 	Viktor: Maybe I should try to find a signal. => repaired
 - Switch to РУЧНО (manual) mode.
 	Viktor: Maybe I should callibrate it first... => repaired
+=> END
 
 ~ callibrated
 Viktor: Great, it's callibrated now...
+
 - Turn the dial marked КАЛИБР (calibration).
+
 	Viktor: I've already callibrated it...
 	Viktor: Maybe I should try to find a signal. => callibrated
 - Fiddle with wires randomly.
@@ -80,3 +88,4 @@ Viktor: Great, it's callibrated now...
 	Viktor: Maybe I should try to find a signal. => callibrated
 - Switch to РУЧНО (manual) mode.
 	=> END
+=> END
