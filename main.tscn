@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://wugg80k0extw"]
+[gd_scene load_steps=55 format=3 uid="uid://wugg80k0extw"]
 
 [ext_resource type="PackedScene" uid="uid://d2jihfohphuue" path="res://demo/components/UI.tscn" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://domhm87hbhbg1" path="res://player/Player.tscn" id="1_ig7tw"]
@@ -16,19 +16,20 @@
 [ext_resource type="Texture2D" uid="uid://crujbbev54pb5" path="res://models/textures/guy.jpg" id="12_0odxb"]
 [ext_resource type="PackedScene" uid="uid://c0pd5cochrdc2" path="res://models/track.glb" id="12_dg77c"]
 [ext_resource type="PackedScene" uid="uid://sh6q6wiaq5wn" path="res://models/Sign_current.glb" id="12_yaehf"]
-[ext_resource type="Script" uid="uid://btdnq71t3qsoc" path="res://death_zone.gd" id="13_074og"]
+[ext_resource type="Script" path="res://death_zone.gd" id="13_074og"]
 [ext_resource type="Texture2D" uid="uid://sikdcb8url2x" path="res://models/textures/girlwdoll.jpg" id="13_lswn8"]
 [ext_resource type="PackedScene" uid="uid://co1d3nhohi77f" path="res://wolf_king_0726042125_refine.fbx" id="13_ycdy4"]
-[ext_resource type="Script" uid="uid://cw5v8gbrhm268" path="res://warning_zone.gd" id="14_074og"]
+[ext_resource type="Script" path="res://warning_zone.gd" id="14_074og"]
 [ext_resource type="AudioStream" uid="uid://h1j3piaxgxc5" path="res://sounds/ambiance/Radiation sound - extreme.mp3" id="14_82xsv"]
 [ext_resource type="Texture2D" uid="uid://dt2eyojiq7hii" path="res://models/textures/soldiers.jpg" id="14_lswn8"]
 [ext_resource type="PackedScene" uid="uid://b1cwydg4hkidh" path="res://models/car.glb" id="14_vivmo"]
-[ext_resource type="Script" uid="uid://bqwmiyav0rqyv" path="res://wolf_zone.gd" id="17_d13ii"]
-[ext_resource type="Script" uid="uid://cqpakjvqpcawc" path="res://end_game.gd" id="18_d13ii"]
+[ext_resource type="Script" path="res://wolf_zone.gd" id="17_d13ii"]
+[ext_resource type="Script" path="res://end_game.gd" id="18_d13ii"]
 [ext_resource type="PackedScene" uid="uid://cglgt56aqshqp" path="res://scenes/game_over.tscn" id="19_cegan"]
 [ext_resource type="Script" uid="uid://h1af4w0q4jik" path="res://map_retrieval.gd" id="22_xuqvo"]
 [ext_resource type="Texture2D" uid="uid://fjsecyn74fov" path="res://models/textures/map.png" id="23_kq58d"]
 [ext_resource type="Script" uid="uid://brm704hkd7ag7" path="res://go_to_tree.gd" id="23_qsp4k"]
+[ext_resource type="PackedScene" uid="uid://d2bh0jk3w2hcn" path="res://models/uploads_files_1939375_Casual_Male.glb" id="30_kq58d"]
 
 [sub_resource type="GDScript" id="GDScript_7mycd"]
 script/source = "@tool
@@ -157,7 +158,6 @@ script = SubResource("GDScript_7mycd")
 
 [node name="WORKLIGHT" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 791.93, 0)
-visible = false
 
 [node name="ASSETS" type="Node" parent="."]
 
@@ -736,6 +736,9 @@ metadata/_edit_lock_ = true
 
 [node name="GameOver" parent="." instance=ExtResource("19_cegan")]
 visible = false
+
+[node name="uploads_files_1939375_Casual_Male" parent="." instance=ExtResource("30_kq58d")]
+transform = Transform3D(1.93851, -0.0844546, 0.484802, 0.492104, 0.332687, -1.90975, 0, 1.97033, 0.343239, 1645.2, -1.62604, 939.019)
 
 [connection signal="body_entered" from="ASSETS/RadioArea" to="ASSETS/RadioArea" method="_on_body_entered"]
 [connection signal="body_entered" from="ASSETS/Radiation/DeathZone" to="ASSETS/Radiation/DeathZone" method="_on_body_entered"]
