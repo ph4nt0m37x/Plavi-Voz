@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://wugg80k0extw"]
+[gd_scene load_steps=40 format=3 uid="uid://wugg80k0extw"]
 
 [ext_resource type="PackedScene" uid="uid://d2jihfohphuue" path="res://demo/components/UI.tscn" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://domhm87hbhbg1" path="res://player/Player.tscn" id="1_ig7tw"]
@@ -36,7 +36,7 @@ func _ready():
 	if not Engine.is_editor_hint() and has_node(\"UI\"):
 		$UI.player = $Player
 		$UI.terrain = $Terrain3D
-		#_start_dialogue(dialogue, \"start\")
+		_start_dialogue(dialogue, \"start\")
 
 func _start_dialogue(dialogue: DialogueResource, start_node: String):
 	$Player.can_move = false
@@ -58,6 +58,8 @@ size = Vector3(0.633606, 1, 4.26245)
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_dg77c"]
 height = 0.898315
 radius = 0.355469
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d13ii"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ycdy4"]
 
@@ -129,7 +131,6 @@ script = SubResource("GDScript_7mycd")
 
 [node name="WORKLIGHT" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 791.93, 0)
-visible = false
 
 [node name="ASSETS" type="Node" parent="."]
 
@@ -453,6 +454,12 @@ transform = Transform3D(2.52951, -1.23431, 4.13256, 0.821532, 4.84104, 0.943069,
 
 [node name="car" parent="ASSETS/Cars" instance=ExtResource("14_vivmo")]
 transform = Transform3D(4.81903, -0.584399, -1.1981, 0.821532, 4.84104, 0.943068, 1.04978, -1.10579, 4.76185, 1031.54, -15.3651, 788.901)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ASSETS/Cars/car"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ASSETS/Cars/car/StaticBody3D"]
+transform = Transform3D(4.52106, 0.364302, -2.10413, -1.88243, -1.64623, -4.32971, -1.00824, 4.70715, -1.35138, 3.05768, 2.31578, -0.0891953)
+shape = SubResource("CapsuleShape3D_d13ii")
 
 [node name="RadioArea" type="Area3D" parent="ASSETS"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1751.58, 0, 654.598)
