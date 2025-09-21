@@ -124,9 +124,6 @@ transform = Transform3D(-34.1095, 0, 36.5588, 0, 50, 0, -36.5588, 0, -34.1095, -
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00564575, 0, -0.32605)
 shape = SubResource("BoxShape3D_dg77c")
 
-[node name="track" parent="ASSETS" instance=ExtResource("12_dg77c")]
-transform = Transform3D(-1.9233e-07, 0, 4.4, 0, 4.4, 0, -4.4, 0, -1.9233e-07, 0.0467069, 0.131104, 42.3821)
-
 [node name="Trees" type="Node" parent="ASSETS"]
 
 [node name="naked_tree" parent="ASSETS/Trees" instance=ExtResource("10_4c57u")]
@@ -457,6 +454,38 @@ shape = SubResource("BoxShape3D_272bh")
 transform = Transform3D(0.313331, 0.0121812, 0.389455, -0.00763576, 0.499852, -0.00949085, -0.389571, 0, 0.313424, 1743.14, 0.239806, 647.42)
 material_override = SubResource("StandardMaterial3D_2cqfq")
 mesh = SubResource("PlaneMesh_yaehf")
+
+[node name="Tracks" type="Node" parent="ASSETS"]
+
+[node name="track4" parent="ASSETS/Tracks" instance=ExtResource("12_dg77c")]
+transform = Transform3D(9.7118, -2.28883, 9.6646, 1.07399, 14.5885, 2.41012, -6.96617, -0.941795, 13.8454, 33.1632, 23.1768, 592.218)
+
+[node name="track7" parent="ASSETS/Tracks" instance=ExtResource("12_dg77c")]
+transform = Transform3D(9.55712, 0.081994, 10.3139, 0.252998, 14.7836, -0.629752, -7.25241, 0.623771, 13.5696, 90.597, 25.0876, 550.154)
+
+[node name="track8" parent="ASSETS/Tracks" instance=ExtResource("12_dg77c")]
+transform = Transform3D(6.51296, 3.21209, 13.8385, -0.932208, 14.4249, -3.56222, -10.0356, 0.744664, 9.31195, 168.409, 23.9226, 467.256)
+
+[node name="track9" parent="ASSETS/Tracks" instance=ExtResource("12_dg77c")]
+transform = Transform3D(4.47637, -2.43751, 15.5735, 1.07399, 14.5885, 2.41012, -11.0819, 0.429232, 6.52425, 214.982, 24.7246, 370.681)
+
+[node name="track10" parent="ASSETS/Tracks" instance=ExtResource("12_dg77c")]
+transform = Transform3D(2.07758, -2.29525, 16.5888, 1.24437, 14.5736, 2.36426, -11.7531, 1.13727, 3.18269, 244.217, 30.5694, 254.514)
+
+[node name="track11" parent="ASSETS/Tracks" instance=ExtResource("12_dg77c")]
+transform = Transform3D(0.113637, -2.07662, 16.8864, 0.169717, 14.6494, 2.39125, -11.9983, 0.18755, 0.193762, 255.111, 39.9323, 130.651)
+
+[node name="track13" parent="ASSETS/Tracks" instance=ExtResource("12_dg77c")]
+transform = Transform3D(-10.5689, -0.799747, 8.02496, 0.169717, 14.6494, 2.39125, -5.68068, 1.92559, -14.859, 181.261, 41.8209, -0.511227)
+
+[node name="track12" parent="ASSETS/Tracks" instance=ExtResource("12_dg77c")]
+transform = Transform3D(-3.63479, -1.89331, 14.006, -0.127154, 14.9421, 1.96956, -9.35606, 0.53247, -5.46804, 238.15, 41.8697, 28.5351)
+
+[node name="track5" parent="ASSETS/Tracks" instance=ExtResource("12_dg77c")]
+transform = Transform3D(9.71117, 0.214804, 10.0164, -0.589956, 14.7654, 0.734797, -7.0246, -0.943102, 13.7855, -13.153, 20.3146, 623.261)
+
+[node name="track6" parent="ASSETS/Tracks" instance=ExtResource("12_dg77c")]
+transform = Transform3D(9.0539, 0.130803, 11.193, -0.589956, 14.7654, 0.734797, -7.85358, -0.958369, 12.8485, -92.9393, 20.8159, 686.149)
 
 [node name="UI" parent="." instance=ExtResource("1_0xm2m")]
 
