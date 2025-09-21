@@ -53,7 +53,12 @@ We also used Godot’s weather system for snow and atmospheric effects, and adde
 
 
 
+## Inspiration
 
+Our game was heavily inspired by The Long Dark, as a winter survival game. We wanted to capture the feel of Yugoslavia through the lens of our parents, who lived during that period, and aimed to evoke not only the aesthetics of that era, but also the tension and intrigue surrounding the disaster itself, with a sense of mystery that hints at the hidden stories and unanswered questions of the politics of that era.
+Marko modeled an authentic Yugoslavian radio, and we found a vintage manual online to accurately replicate how it functions.
+While we really wanted to create a fully realized world, time constraints meant we could not expand the game as much as we had hoped.
+Nevertheless, this project represents a glimpse of the vision we would love to continue exploring in our free time.
 
 ## Credits
 
@@ -90,9 +95,4 @@ We also used Godot’s weather system for snow and atmospheric effects, and adde
 - Shaders
     - https://godotshaders.com/shader/screen-space-frost-with-volumetric-snow/
 
-### Inspiration
 
-Our game was heavily inspired by The Long Dark, as a winter survival game. We wanted to capture the feel of Yugoslavia through the lens of our parents, who lived during that period, and aimed to evoke not only the aesthetics of that era, but also the tension and intrigue surrounding the disaster itself, with a sense of mystery that hints at the hidden stories and unanswered questions of the politics of that era.
-Marko modeled an authentic Yugoslavian radio, and we found a vintage manual online to accurately replicate how it functions.
-While we really wanted to create a fully realized world, time constraints meant we could not expand the game as much as we had hoped.
-Nevertheless, this project represents a glimpse of the vision we would love to continue exploring in our free time.
