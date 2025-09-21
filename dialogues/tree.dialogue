@@ -1,0 +1,82 @@
+~ start
+Viktor: What’s this? A radio?
+
+Viktor: It looks broken… but it might still work.
+
+Viktor: Civil defense or military units could be giving instructions to survivors.
+
+Viktor: Even other people could be transmitting across the mountains, I could find others.
+
+=>< check
+
+Tito: Your government has not abandoned you. The blue train is on its way to evacuate you, and take you to shelters in Belgrade.
+
+Tito: It will follow the main railway line and stop only at stations or areas where boarding is possible.
+
+Tito: Signal your presence if you can. Move carefully, and remain vigilant. Trust that help is coming.
+
+Viktor: If the train is still running… I can make it. I can reach Belgrade.
+
+Viktor: The last time we spoke, she was still visiting her mother… 
+
+Viktor: The snow hit them first, but they were still managing okay.
+
+Viktor: …Then the lines went dead.
+
+Viktor: She’s there. She has to be. She’s tougher than anyone I know.
+
+Viktor: I have to plot a path to the train tracks.
+
+Viktor: …But I need to be careful.
+
+Viktor: It’s not just the cold out here. It’s people too. Desperate people.
+
+Viktor: When food ran out, when the heat died… neighbors stopped being neighbors. They turned on each other.
+
+
+=> END
+
+~ check
+Viktor: First, I need to figure out how to get this working…
+- Check the antenna. => wires
+- Bang it on the side to see if it works.
+	Nothing happens. => check
+- Try to power it on immediately.
+	The radio does not start. => check
+=> END
+
+~ wires
+The antenna still seems sturdy. Exposed wiring crackles in the cold air.
+- Twist the wires together barehanded. 
+	Viktor: Ouch! That hurt. => wires
+- Wrap the wires with cloth scraps. (risk of frostbite) => repaired
+- Leave wires exposed. =>  broken
+
+	
+=> END
+
+~ broken
+Viktor: It doesn't seem to be working... I should try something else. => check
+=> END
+
+
+~ repaired
+Viktor: Managed to insulate the wiring, and… The radio works!
+- Turn the dial marked КАЛИБР (calibration).
+	Viktor: I think it's callibrated now... => callibrated
+- Fiddle with wires randomly.
+	Viktor: I'm really.. not doing much..
+	Viktor: Maybe I should try to find a signal. => repaired
+- Switch to РУЧНО (manual) mode.
+	Viktor: Maybe I should callibrate it first... => repaired
+
+~ callibrated
+Viktor: Great, it's callibrated now...
+- Turn the dial marked КАЛИБР (calibration).
+	Viktor: I've already callibrated it...
+	Viktor: Maybe I should try to find a signal. => callibrated
+- Fiddle with wires randomly.
+	Viktor: I'm really.. not doing much..
+	Viktor: Maybe I should try to find a signal. => callibrated
+- Switch to РУЧНО (manual) mode.
+	=> END
