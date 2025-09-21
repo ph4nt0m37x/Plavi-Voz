@@ -71,6 +71,8 @@ We also used Godot’s weather system for snow and atmospheric effects, and adde
   - https://www.cgtrader.com/free-3d-models/car/suv/uaz-3d
 - Wolf Asset
   - https://www.cgtrader.com/free-3d-models/animals/mammal/wolf-king-8a9a9e58-ea52-4928-b435-bd21bce75e9d
+- Road Signs Assets
+  - https://www.cgtrader.com/free-3d-models/animals/mammal/wolf-king-8a9a9e58-ea52-4928-b435-bd21bce75e9d
 
 ### Textures
 
