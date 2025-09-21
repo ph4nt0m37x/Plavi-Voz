@@ -4,6 +4,8 @@ Plavi Voz is a mini 3D story-driven game built in Godot with survival elements. 
 The game begins with Viktor searching for shelter to survive the night, but his ultimate goal is to reach Belgrade and find his wife, who was visiting her mother when the disaster struck.
 The story combines survival mechanics with narrative choices, culminating in Viktor trying to reach the train that promises salvation for the few remaining survivors.
 
+Link to the video demo since it was too big for github: https://drive.google.com/file/d/1WNV2Ksl9n6w8_4nlcQptG7ZLNKpAJZuy/view?usp=drive_link
+
 ## Movement
 
 The player can move using the W, A, S, and D keys to move in all directions, use Space to jump, and Shift to sprint.
