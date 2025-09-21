@@ -495,6 +495,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.7933, -34.6795, -5.85846)
 
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
 transform = Transform3D(-0.513092, 0, 0.858333, 0, 1, 0, -0.858334, 0, -0.513092, 1789.78, 0.0975699, 632.923)
+MOVE_SPEED = 50.0
+JUMP_SPEED = 2.0
+headbob_freq = 2
+headbob_amp = 0.04
+light_shake_enabled = true
+light_shake_intensity = 0.15
+light_shake_freq = 3.0
+flashlight_power = 100.0
+power_drain_rate = 3.33333
+blink_interval = 0.4
+recharge_rate_multiplier = 2.0
+first_person = false
+gravity_enabled = true
+collision_enabled = true
 
 [node name="Terrain3D" type="Terrain3D" parent="."]
 data_directory = "res://world"
