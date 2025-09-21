@@ -7,6 +7,8 @@ var headbob_time := 0.0
 var foot_sound := true
 var foot_land := true
 
+@onready var dialogue = preload("res://dialogues/flashlight.dialogue")
+
 # Light shake variables
 @export var light_shake_enabled: bool = true
 @export var light_shake_intensity: float = 0.15  # Much stronger than headbob
@@ -22,6 +24,9 @@ var flashlight_enabled: bool = true
 var is_blinking: bool = false
 var blink_timer: float = 0.0
 @export var blink_interval: float = 0.4  # Base blinking interval
+
+var first_delpetion = true
+
 
 # Recharge variables
 var is_recharging: bool = false
@@ -106,6 +111,10 @@ func _physics_process(p_delta) -> void:
 
 # Update flashlight power and handle blinking
 func update_flashlight_power(delta: float):
+	
+	if first_delpetion and flashlight_power <= 5:
+		first_delpetion = false
+		_start_dialogue(dialogue, "start")
 	# Only drain power if flashlight is on and we're not recharging
 	if flashlight_enabled and spotlight_node and not is_recharging:
 		# Drain power when flashlight is on
@@ -276,3 +285,12 @@ func _input(p_event: InputEvent) -> void:
 		# Handle key releases for movement
 		if not p_event.pressed and p_event.keycode in [KEY_Q, KEY_E, KEY_SPACE]:
 			velocity.y = 0
+			
+func _start_dialogue(dialogue: DialogueResource, start_node: String):
+	can_move = false
+	DialogueManager.show_dialogue_balloon(dialogue, start_node)
+	await DialogueManager.dialogue_ended
+	_on_dialogue_ended()
+
+func _on_dialogue_ended():
+	can_move = true
