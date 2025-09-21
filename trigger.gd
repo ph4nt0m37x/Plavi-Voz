@@ -7,12 +7,13 @@ extends Area3D
 var repaired := false
 
 func _ready() -> void:
+	print("this is a test")
 	pass
 
 func _process(delta: float) -> void:
 	pass
 
-func _on_body_entered(player) -> void:
+func _on_body_entered(body):
 	if not repaired:
 		_start_dialogue(dialogue, "start")
 		

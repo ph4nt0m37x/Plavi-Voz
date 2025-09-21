@@ -429,7 +429,8 @@ transform = Transform3D(4.81903, -0.584399, -1.1981, 0.821532, 4.84104, 0.943068
 
 [node name="RadioArea" type="Area3D" parent="ASSETS"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1751.58, 0, 654.598)
-collision_layer = 2
+collision_mask = 2
+monitorable = false
 script = ExtResource("7_w48qg")
 
 [node name="Trigger" type="CollisionShape3D" parent="ASSETS/RadioArea"]
