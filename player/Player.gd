@@ -8,9 +8,9 @@ var foot_sound := true
 var foot_land := true
 
 # Light shake variables
-@export var light_shake_enabled: bool = false
+@export var light_shake_enabled: bool = true
 @export var light_shake_intensity: float = 0.15  # Much stronger than headbob
-@export var light_shake_freq: float = 8.0  # Different frequency from headbob
+@export var light_shake_freq: float = 3.0  # Different frequency from headbob
 var light_shake_time := 0.0
 var light_original_pos: Vector3
 var spotlight_node: SpotLight3D

@@ -1,0 +1,27 @@
+[gd_scene load_steps=8 format=3 uid="uid://brmo2jgk5qrtv"]
+
+[ext_resource type="PackedScene" uid="uid://cqy7y1w70kg00" path="res://models/house.fbx" id="1_metfq"]
+[ext_resource type="Texture2D" uid="uid://nbqx1wlnmoke" path="res://models/textures/Medieval_Brick_Texture_by_goodtextures.jpg" id="2_6syyc"]
+[ext_resource type="Texture2D" uid="uid://w10wwtymkf4g" path="res://models/textures/WoodPlanksBare0051_3_M.jpg" id="2_o1325"]
+[ext_resource type="Texture2D" uid="uid://ccyw0p22d7j6i" path="res://models/textures/windows_0279_01_preview.jpg" id="3_vy7fe"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_10qhy"]
+albedo_texture = ExtResource("2_o1325")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2y50f"]
+albedo_texture = ExtResource("3_vy7fe")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vy7fe"]
+albedo_color = Color(0.654533, 0.592482, 0.43807, 1)
+albedo_texture = ExtResource("2_6syyc")
+
+[node name="house" instance=ExtResource("1_metfq")]
+
+[node name="Cube_028" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_10qhy")
+
+[node name="Plane" parent="." index="1"]
+material_override = SubResource("StandardMaterial3D_2y50f")
+
+[node name="Cube" parent="." index="2"]
+material_override = SubResource("StandardMaterial3D_vy7fe")
