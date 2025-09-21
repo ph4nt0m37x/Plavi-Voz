@@ -46,6 +46,7 @@ script = ExtResource("1_nm1yx")
 [node name="FootAudio3D" type="AudioStreamPlayer3D" parent="."]
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_mox7b")
+volume_db = -1.0
 
 [node name="AmbiantAudio3D" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.93869, 0)
