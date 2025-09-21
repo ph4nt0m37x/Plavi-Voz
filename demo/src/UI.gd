@@ -4,14 +4,13 @@ var player: Node3D
 var terrain: Node3D
 var visible_mode: int = 1
 
-
-
 func _init() -> void:
 	RenderingServer.set_debug_generate_wireframes(true)
 
 func _process(p_delta) -> void:
-	$Label.text = "FPS: %d\n" % Engine.get_frames_per_second()
-	$Label.text += str(terrain.get_data().get_texture_id(player.global_position))
+	$Label.text = "FPS: %d\n" % Engine.get_frames_per_second() + "\n"
+	$Label.text += str(terrain.get_data().get_texture_id(player.global_position)) + "\n"
+	$Label.text += str(player.flashlight_power) 
 	if(visible_mode == 1):
 		$Label.text += "Move Speed: %.1f\n" % player.MOVE_SPEED if player else ""
 		$Label.text += "Position: %.1v\n" % player.global_position if player else ""
