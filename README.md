@@ -1,4 +1,4 @@
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/50f84f71-e7b3-429c-9e88-f5a1da2d1914" />#  Plavi Voz
+#  Plavi Voz
 
 Plavi Voz is a mini 3D story-driven game built in Godot with survival elements. You play as Viktor, a survivor in a sudden winter apocalypse in 1970s Yugoslavia.
 The game begins with Viktor searching for shelter to survive the night, but his ultimate goal is to reach Belgrade and find his wife, who was visiting her mother when the disaster struck.
@@ -65,6 +65,7 @@ We also used Godot’s weather system for snow and atmospheric effects, and adde
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/8c60a67d-cd71-40cf-8320-c37f1219d924" />
 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/50f84f71-e7b3-429c-9e88-f5a1da2d1914" />
 
 ## Inspiration
 
