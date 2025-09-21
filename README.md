@@ -11,6 +11,13 @@ The story combines survival mechanics with narrative choices, culminating in Vik
 The player can move using the W, A, S, and D keys to move in all directions, use Space to jump, and Shift to sprint.
 The game features dynamic footsteps, which change depending on the player’s speed and interaction with the snow-covered terrain, enhancing immersion in the winter environment.
 
+## Flashlight Mechanic
+
+The player’s mechanical flashlight is an essential tool for exploring dark areas and finding hidden clues.
+To generate power, the flashlight must be manually cranked by pressing R, but it needs to be turned off while doing so.
+Once charged, the flashlight can be toggled on and off with F, allowing the player to conserve power when it is not needed.
+Using the flashlight wisely is key, as it gradually consumes energy while turned on.
+
 ## Dialogue
 
 To handle the monologues, we used Dialogue Manager, a plugin available in the Godot Asset Library.
@@ -25,10 +32,6 @@ If the player makes a mistake, helpful hints are provided, and they are allowed 
 Successfully choosing all three correct choices results in the radio being repaired, allowing the story to progress.
 
 ## Second minigame
-
-
-## Third minigame
-
 
 ## Exploration rewards
 Throughout the game, players can discover small, optional story moments that are not required to progress. This includes things like old photographs lying around, interesting objects, or little environmental details that add depth and flavor to the world.
