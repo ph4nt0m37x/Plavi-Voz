@@ -1,13 +1,13 @@
 extends Area3D
 
-@onready var dialogue = preload("res://dialogues/car.dialogue")
-@onready var player = $"../../../Player"
+@onready var dialogue = preload("res://dialogues/wolves.dialogue")
+@onready var player = %Player
 
-var done := false
+var warning = true
 
 func _on_body_entered(body):
-	if not done:
-		done = true
+	if warning:
+		warning = false
 		_start_dialogue(dialogue, "start")
 
 func _start_dialogue(dialogue: DialogueResource, start_node: String):

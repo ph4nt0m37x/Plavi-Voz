@@ -4,20 +4,22 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://co1d3nhohi77f"
-path="res://.godot/imported/wolf_king_0726042125_refine.fbx-19226952e4f94b5715ada7bc1fab05c2.scn"
+path="res://.godot/imported/wolf_king_0726042125_refine.fbx-647ad48a8a46aff58af34b9f4c407ccc.scn"
 
 [deps]
 
-source_file="res://wolf_king_0726042125_refine.fbx"
-dest_files=["res://.godot/imported/wolf_king_0726042125_refine.fbx-19226952e4f94b5715ada7bc1fab05c2.scn"]
+source_file="res://models/wolf_king_0726042125_refine.fbx"
+dest_files=["res://.godot/imported/wolf_king_0726042125_refine.fbx-647ad48a8a46aff58af34b9f4c407ccc.scn"]
 
 [params]
 
 nodes/root_type=""
 nodes/root_name=""
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,7 +34,11 @@ animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={}
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1
+fbx/naming_version=1

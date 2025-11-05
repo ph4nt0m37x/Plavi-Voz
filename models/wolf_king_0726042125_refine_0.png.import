@@ -2,12 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2mjocwwqkx44"
-valid=false
+uid="uid://rcqyj4586bdu"
+path.bptc="res://.godot/imported/wolf_king_0726042125_refine_0.png-b92fb24174509d7edd4e0f875736a472.bptc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "d07e67fecb84a5f2863d0908b365cb32"
+}
 
 [deps]
 
-source_file="res://wolf_king_0726042125_refine_0.png"
+source_file="res://models/wolf_king_0726042125_refine_0.png"
+dest_files=["res://.godot/imported/wolf_king_0726042125_refine_0.png-b92fb24174509d7edd4e0f875736a472.bptc.ctex"]
 
 [params]
 
@@ -33,4 +41,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

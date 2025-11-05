@@ -1,7 +1,7 @@
 extends Area3D
 
-@onready var dialogue = preload("res://dialogues/lake.dialogue")
-@onready var player = $"../../../Player"
+@onready var dialogue = preload("res://dialogues/nearby.dialogue")
+@onready var player = %Player
 
 var done := false
 

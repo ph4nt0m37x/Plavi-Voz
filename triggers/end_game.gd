@@ -1,13 +1,13 @@
 extends Area3D
 
-@onready var dialogue = preload("res://dialogues/map.dialogue")
-@onready var player = $"../../../Player"
+@onready var dialogue = preload("res://dialogues/endgame.dialogue")
+@onready var player = %Player
 
-var done := false
+var warning = true
 
 func _on_body_entered(body):
-	if not done:
-		done = true
+	if warning:
+		warning = false
 		_start_dialogue(dialogue, "start")
 
 func _start_dialogue(dialogue: DialogueResource, start_node: String):
@@ -18,7 +18,4 @@ func _start_dialogue(dialogue: DialogueResource, start_node: String):
 	_on_dialogue_ended()
 
 func _on_dialogue_ended():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	player.can_move = true
-	player.has_map = true
-	call_deferred("queue_free")
+	get_tree().quit()
