@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://wugg80k0extw"]
+[gd_scene load_steps=65 format=3 uid="uid://wugg80k0extw"]
 
 [ext_resource type="PackedScene" uid="uid://d2jihfohphuue" path="res://demo/components/UI.tscn" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://domhm87hbhbg1" path="res://player/Player.tscn" id="1_ig7tw"]
@@ -52,17 +52,64 @@ func _ready():
 		$UI.terrain = $Terrain3D
 		#_start_dialogue(dialogue, \"start\")
 
-func _start_dialogue(dialogue: DialogueResource, start_node: String):
-	$Player.can_move = false
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	DialogueManager.show_dialogue_balloon(dialogue, start_node)
-	await DialogueManager.dialogue_ended
-	_on_dialogue_ended()
+#func _start_dialogue(dialogue: DialogueResource, start_node: String):
+	#$Player.can_move = false
+	#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	#DialogueManager.show_dialogue_balloon(dialogue, start_node)
+	#await DialogueManager.dialogue_ended
+	#_on_dialogue_ended()
 
 func _on_dialogue_ended():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$Player.can_move = true
 "
+
+[sub_resource type="Gradient" id="Gradient_272bh"]
+offsets = PackedFloat32Array(0.2, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5vw27"]
+noise_type = 2
+frequency = 0.03
+cellular_jitter = 3.0
+cellular_return_type = 0
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 50.0
+domain_warp_fractal_type = 2
+domain_warp_fractal_lacunarity = 1.5
+domain_warp_fractal_gain = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_kek77"]
+noise = SubResource("FastNoiseLite_5vw27")
+color_ramp = SubResource("Gradient_272bh")
+seamless = true
+
+[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_272bh"]
+_shader_parameters = {
+&"auto_base_texture": 0,
+&"auto_height_reduction": 0.0,
+&"auto_overlay_texture": 1,
+&"auto_slope": 1.0,
+&"bias_distance": 512.0,
+&"blend_sharpness": 0.5,
+&"depth_blur": 0.0,
+&"enable_macro_variation": true,
+&"enable_projection": true,
+&"flat_terrain_normals": false,
+&"macro_variation1": Color(1, 1, 1, 1),
+&"macro_variation2": Color(1, 1, 1, 1),
+&"macro_variation_slope": 0.333,
+&"mipmap_bias": 1.0,
+&"noise1_angle": 0.0,
+&"noise1_offset": Vector2(0.5, 0.5),
+&"noise1_scale": 0.04,
+&"noise2_scale": 0.076,
+&"noise_texture": SubResource("NoiseTexture2D_kek77"),
+&"projection_threshold": 0.8
+}
+world_background = 0
+auto_shader = true
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ycdy4"]
 
@@ -116,63 +163,43 @@ albedo_texture = ExtResource("23_kq58d")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d13ii"]
 
-[sub_resource type="Gradient" id="Gradient_272bh"]
-offsets = PackedFloat32Array(0.2, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_facbu"]
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_5vw27"]
-noise_type = 2
-frequency = 0.03
-cellular_jitter = 3.0
-cellular_return_type = 0
-domain_warp_enabled = true
-domain_warp_type = 1
-domain_warp_amplitude = 50.0
-domain_warp_fractal_type = 2
-domain_warp_fractal_lacunarity = 1.5
-domain_warp_fractal_gain = 1.0
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_kek77"]
-noise = SubResource("FastNoiseLite_5vw27")
-color_ramp = SubResource("Gradient_272bh")
-seamless = true
-
-[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_272bh"]
-_shader_parameters = {
-&"auto_base_texture": 0,
-&"auto_height_reduction": 0.0,
-&"auto_overlay_texture": 1,
-&"auto_slope": 1.0,
-&"bias_distance": 512.0,
-&"blend_sharpness": 0.5,
-&"depth_blur": 0.0,
-&"enable_macro_variation": true,
-&"enable_projection": true,
-&"flat_terrain_normals": false,
-&"macro_variation1": Color(1, 1, 1, 1),
-&"macro_variation2": Color(1, 1, 1, 1),
-&"macro_variation_slope": 0.333,
-&"mipmap_bias": 1.0,
-&"noise1_angle": 0.0,
-&"noise1_offset": Vector2(0.5, 0.5),
-&"noise1_scale": 0.04,
-&"noise2_scale": 0.076,
-&"noise_texture": SubResource("NoiseTexture2D_kek77"),
-&"projection_threshold": 0.8
-}
-world_background = 0
-auto_shader = true
+[sub_resource type="QuadMesh" id="QuadMesh_facbu"]
+size = Vector2(100, 100)
+orientation = 1
 
 [node name="Main" type="Node3D"]
 script = SubResource("GDScript_7mycd")
 
 [node name="WORKLIGHT" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 791.93, 0)
+
+[node name="UI" parent="." instance=ExtResource("1_0xm2m")]
+
+[node name="Environment" parent="." instance=ExtResource("2_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.7933, -34.6795, -5.85846)
+
+[node name="Player" parent="." instance=ExtResource("1_ig7tw")]
+unique_name_in_owner = true
+transform = Transform3D(-0.513092, 0, 0.858333, 0, 1, 0, -0.858334, 0, -0.513092, 1789.78, 1.5604548, 632.923)
+
+[node name="Terrain3D" type="Terrain3D" parent="."]
+data_directory = "res://world"
+material = SubResource("Terrain3DMaterial_272bh")
+assets = ExtResource("5_lquwl")
+top_level = true
+visible = false
+metadata/_edit_lock_ = true
+
+[node name="GameOver" parent="." instance=ExtResource("19_cegan")]
+visible = false
+script = null
+
+[node name="ASSETS" type="Node3D" parent="."]
 visible = false
 
-[node name="ASSETS" type="Node" parent="."]
-
-[node name="Trees" type="Node" parent="ASSETS"]
+[node name="Trees" type="Node3D" parent="ASSETS"]
 
 [node name="naked_tree" parent="ASSETS/Trees" instance=ExtResource("10_4c57u")]
 transform = Transform3D(-1.02187, 0, 29.9826, 0, 30, 0, -29.9826, 0, -1.02187, 1762.81, -5.8364, 609.165)
@@ -471,7 +498,7 @@ transform = Transform3D(27.3363, 0, -12.3583, 0, 30, 0, 12.3583, 0, 27.3363, 165
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.106632, 0.550842, 0)
 shape = SubResource("CylinderShape3D_dg77c")
 
-[node name="Wolves" type="Node" parent="ASSETS"]
+[node name="Wolves" type="Node3D" parent="ASSETS"]
 
 [node name="wolf1" parent="ASSETS/Wolves" instance=ExtResource("13_ycdy4")]
 transform = Transform3D(9.47081, 0, -3.20993, 0, 10, 0, 3.20993, 0, 9.47081, 1150.75, -2.15425, 260.994)
@@ -517,13 +544,13 @@ transform = Transform3D(72.1216, 0, -69.271, 0, 100, 0, 69.271, 0, 72.1216, -44.
 shape = SubResource("BoxShape3D_82xsv")
 debug_color = Color(0.0110418, 0.120684, 0.105, 0.42)
 
-[node name="Pictures" type="Node" parent="ASSETS"]
+[node name="Pictures" type="Node3D" parent="ASSETS"]
 
-[node name="uploads_files_1939375_Casual_Male" parent="ASSETS/Pictures" instance=ExtResource("30_kq58d")]
+[node name="Casual_Male" parent="ASSETS/Pictures" instance=ExtResource("30_kq58d")]
 transform = Transform3D(4.96263, -0.10471, 0.601076, 0.610128, 0.851684, -4.88901, 4.57642e-07, 4.92582, 0.858097, 1660.47, -1.59475, 932.281)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="ASSETS/Pictures"]
-transform = Transform3D(-0.673682, -0.470758, 0.569684, -0.164941, 0.847196, 0.505028, -0.72038, 0.246264, -0.648388, 1644.69, -1.14278, 938.503)
+transform = Transform3D(-0.6736819, -0.47075787, 0.5696839, -0.16494098, 0.847196, 0.5050281, -0.72037995, 0.24626411, -0.64838785, 1644.69, -1.14278, 938.503)
 light_color = Color(1, 1, 0.780392, 1)
 omni_range = 10.0
 omni_attenuation = 1.5
@@ -532,40 +559,42 @@ omni_attenuation = 1.5
 transform = Transform3D(0.313331, 0.0121812, 0.389455, -0.00763576, 0.499852, -0.00949085, -0.389571, 0, 0.313424, 1743.14, 0.239806, 647.42)
 material_override = SubResource("StandardMaterial3D_2cqfq")
 mesh = SubResource("PlaneMesh_yaehf")
+skeleton = NodePath("")
 
 [node name="guy3" type="MeshInstance3D" parent="ASSETS/Pictures"]
 transform = Transform3D(0.454099, -0.124062, 0.168531, 0.138684, 0.47995, -0.0203691, -0.156719, 0.0652445, 0.4703, 1498.17, -3.90909, 581.084)
 material_override = SubResource("StandardMaterial3D_xuqvo")
 material_overlay = SubResource("StandardMaterial3D_kq58d")
 mesh = SubResource("PlaneMesh_xuqvo")
+skeleton = NodePath("")
 
-[node name="uploads_files_2880858_Bag" parent="ASSETS/Pictures" instance=ExtResource("13_htxhm")]
+[node name="Bag" parent="ASSETS/Pictures" instance=ExtResource("13_htxhm")]
 transform = Transform3D(-0.336841, -0.235379, 0.284842, -0.0824708, 0.423598, 0.252514, -0.36019, 0.123132, -0.324194, 1643.58, -1.64844, 937.376)
 
-[node name="Node" type="Node" parent="ASSETS/Pictures"]
+[node name="Guy" type="Node3D" parent="ASSETS/Pictures"]
 
-[node name="guy" type="MeshInstance3D" parent="ASSETS/Pictures/Node"]
+[node name="guy" type="MeshInstance3D" parent="ASSETS/Pictures/Guy"]
 transform = Transform3D(-0.648462, 0.224741, 0.727316, -0.127856, 0.909701, -0.395092, -0.750434, -0.349194, -0.561171, 1641.67, -2.07732, 937.824)
 material_override = SubResource("StandardMaterial3D_a6jrf")
 mesh = SubResource("PlaneMesh_xuqvo")
-skeleton = NodePath("../..")
+skeleton = NodePath("")
 
-[node name="guy2" type="MeshInstance3D" parent="ASSETS/Pictures/Node"]
+[node name="guy2" type="MeshInstance3D" parent="ASSETS/Pictures/Guy"]
 transform = Transform3D(-0.471666, 0.132026, -0.100498, 0.138684, 0.47995, -0.0203692, 0.0910899, -0.04709, -0.489372, 1642.19, -2.24091, 936.293)
 material_override = SubResource("StandardMaterial3D_qsp4k")
 mesh = SubResource("PlaneMesh_xuqvo")
-skeleton = NodePath("../..")
+skeleton = NodePath("")
 
-[node name="photos" type="Area3D" parent="ASSETS/Pictures/Node"]
+[node name="photos" type="Area3D" parent="ASSETS/Pictures/Guy"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1642.13, -1.10711, 936.201)
 collision_mask = 2
 script = ExtResource("16_jq2sk")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ASSETS/Pictures/Node/photos"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ASSETS/Pictures/Guy/photos"]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0.326538, 0, 1.06421)
 shape = SubResource("BoxShape3D_4k2k6")
 
-[node name="Tracks" type="Node" parent="ASSETS"]
+[node name="Tracks" type="Node3D" parent="ASSETS"]
 
 [node name="track4" parent="ASSETS/Tracks" instance=ExtResource("12_dg77c")]
 transform = Transform3D(9.7118, -2.28883, 9.6646, 1.07399, 14.5885, 2.41012, -6.96617, -0.941795, 13.8454, 33.1632, 23.1768, 592.218)
@@ -597,7 +626,7 @@ transform = Transform3D(9.71117, 0.214804, 10.0164, -0.589956, 14.7654, 0.734797
 [node name="track6" parent="ASSETS/Tracks" instance=ExtResource("12_dg77c")]
 transform = Transform3D(9.0539, 0.130803, 11.193, -0.589956, 14.7654, 0.734797, -7.85358, -0.958369, 12.8485, -92.9393, 20.8159, 686.149)
 
-[node name="Radiation" type="Node" parent="ASSETS"]
+[node name="Radiation" type="Node3D" parent="ASSETS"]
 
 [node name="RadioArea" type="Area3D" parent="ASSETS/Radiation"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1751.58, 0, 654.598)
@@ -656,7 +685,8 @@ transform = Transform3D(40, 0, 0, 0, 40, 0, 0, 0, 40, 1.40503, 0.303501, -19.022
 shape = SubResource("BoxShape3D_82xsv")
 debug_color = Color(0.0110418, 0.120684, 0.105, 0.42)
 
-[node name="Complete" type="Node" parent="ASSETS"]
+[node name="Complete" type="Node3D" parent="ASSETS"]
+visible = false
 
 [node name="train" parent="ASSETS/Complete" instance=ExtResource("11_efxa6")]
 transform = Transform3D(-34.1095, 0, 36.5588, 0, 50, 0, -36.5588, 0, -34.1095, -171.83, 44.5322, 764.818)
@@ -689,7 +719,7 @@ collision_mask = 2
 script = ExtResource("18_d13ii")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ASSETS/Complete/EndGameZone"]
-transform = Transform3D(80.587, -2.91038, -59.1377, 59.1942, 1.70336, 80.5801, -1.33785, -99.9431, 3.09546, -38.1656, -33.3175, 171.804)
+transform = Transform3D(0.8058697, -0.02910375, -0.59137726, 0.5919418, 0.01703362, 0.80580074, -0.013378529, -0.9994312, 0.030954605, -38.1656, -33.3175, 171.804)
 shape = SubResource("CapsuleShape3D_1u8w0")
 debug_color = Color(0.207991, 0.0228398, 0, 0.42)
 
@@ -703,7 +733,7 @@ transform = Transform3D(66.3831, -57.7304, -47.5446, 59.1941, 1.70344, 80.5801, 
 shape = SubResource("CapsuleShape3D_1u8w0")
 debug_color = Color(0.207991, 0.0228398, 0, 0.42)
 
-[node name="Map" type="Node" parent="ASSETS"]
+[node name="Map" type="Node3D" parent="ASSETS"]
 
 [node name="Map Retrieval" type="Area3D" parent="ASSETS/Map"]
 transform = Transform3D(0.986013, 0, -0.166665, 0, 1, 0, 0.166665, 0, 0.986013, 1648.56, 0.73857, 930.521)
@@ -731,19 +761,19 @@ transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, -23.1339, -9.29237, 2.7
 shape = SubResource("BoxShape3D_82xsv")
 debug_color = Color(0.0110418, 0.120684, 0.105, 0.42)
 
-[node name="Passages" type="Node" parent="ASSETS"]
+[node name="Passages" type="Node3D" parent="ASSETS"]
 
-[node name="Cars" type="Node" parent="ASSETS/Passages"]
+[node name="Car2" type="Node3D" parent="ASSETS/Passages"]
 
-[node name="car2" parent="ASSETS/Passages/Cars" instance=ExtResource("14_vivmo")]
+[node name="car2" parent="ASSETS/Passages/Car2" instance=ExtResource("14_vivmo")]
 transform = Transform3D(2.52951, -1.23431, 4.13256, 0.821532, 4.84104, 0.943069, -4.23399, 0.201905, 2.6519, 921.23, -15.3651, 119.662)
 
-[node name="car" parent="ASSETS/Passages/Cars" instance=ExtResource("14_vivmo")]
+[node name="car" parent="ASSETS/Passages/Car2" instance=ExtResource("14_vivmo")]
 transform = Transform3D(4.81903, -0.584399, -1.1981, 0.821532, 4.84104, 0.943068, 1.04978, -1.10579, 4.76185, 1031.54, -15.3651, 788.901)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="ASSETS/Passages/Cars/car"]
+[node name="StaticBody3D" type="StaticBody3D" parent="ASSETS/Passages/Car2/car"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ASSETS/Passages/Cars/car/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ASSETS/Passages/Car2/car/StaticBody3D"]
 transform = Transform3D(4.52106, 0.364302, -2.10413, -1.88243, -1.64623, -4.32971, -1.00824, 4.70715, -1.35138, 3.05768, 2.31578, -0.0891953)
 shape = SubResource("CapsuleShape3D_d13ii")
 
@@ -774,7 +804,7 @@ script = ExtResource("29_0rl1p")
 transform = Transform3D(116.758, 0, -27.7058, 0, 120, 0, 27.7058, 0, 116.758, 4.95636, 117.088, -131.314)
 shape = SubResource("BoxShape3D_4k2k6")
 
-[node name="Sign" type="Node" parent="ASSETS"]
+[node name="Sign" type="Node3D" parent="ASSETS"]
 
 [node name="Sign_do_not_entere" parent="ASSETS/Sign" instance=ExtResource("36_facbu")]
 transform = Transform3D(1.37499, -1.76868, 4.47003, 0.520004, 4.67673, 1.69051, -4.77902, 0, 1.47003, 812.39, -21.116, 952.462)
@@ -785,30 +815,18 @@ transform = Transform3D(1.57806, 1.45669, -4.51528, 0.520004, 4.67673, 1.69051, 
 [node name="Sign_train" parent="ASSETS/Sign" instance=ExtResource("37_b1qrp")]
 transform = Transform3D(3.20535, 0, 7.32978, 0, 8, 0, -7.32978, 0, 3.20535, 565.323, 20.6829, 676.589)
 
-[node name="UI" parent="." instance=ExtResource("1_0xm2m")]
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
 
-[node name="Environment" parent="." instance=ExtResource("2_h2yge")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.7933, -34.6795, -5.85846)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_facbu")
 
-[node name="Player" parent="." instance=ExtResource("1_ig7tw")]
-unique_name_in_owner = true
-transform = Transform3D(-0.513092, 0, 0.858333, 0, 1, 0, -0.858334, 0, -0.513092, 1789.78, 0.0975699, 632.923)
-
-[node name="Terrain3D" type="Terrain3D" parent="."]
-data_directory = "res://world"
-material = SubResource("Terrain3DMaterial_272bh")
-assets = ExtResource("5_lquwl")
-top_level = true
-metadata/_edit_lock_ = true
-
-[node name="GameOver" parent="." instance=ExtResource("19_cegan")]
-visible = false
-script = null
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("QuadMesh_facbu")
 
 [connection signal="body_entered" from="ASSETS/Wolves/DeathZone" to="ASSETS/Wolves/DeathZone" method="_on_body_entered"]
 [connection signal="body_entered" from="ASSETS/Wolves/DeathZone2" to="ASSETS/Wolves/DeathZone2" method="_on_body_entered"]
 [connection signal="body_entered" from="ASSETS/Wolves/WarningZone" to="ASSETS/Wolves/WarningZone" method="_on_body_entered"]
-[connection signal="body_entered" from="ASSETS/Pictures/Node/photos" to="ASSETS/Pictures/Node/photos" method="_on_body_entered"]
+[connection signal="body_entered" from="ASSETS/Pictures/Guy/photos" to="ASSETS/Pictures/Guy/photos" method="_on_body_entered"]
 [connection signal="body_entered" from="ASSETS/Radiation/RadioArea" to="ASSETS/Radiation/RadioArea" method="_on_body_entered"]
 [connection signal="body_entered" from="ASSETS/Radiation/DeathZone" to="ASSETS/Radiation/DeathZone" method="_on_body_entered"]
 [connection signal="body_entered" from="ASSETS/Radiation/WarningZone" to="ASSETS/Radiation/WarningZone" method="_on_body_entered"]
